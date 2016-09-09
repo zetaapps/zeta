@@ -1,0 +1,65 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.fernandocejas.frodo'
+
+android {
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
+
+    defaultConfig {
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode 2
+        versionName "1.0.2"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lintOptions {
+        lintConfig file("../config/lint/lint.xml")
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile libraries.supportAppCompat
+    compile libraries.dagger
+    apt libraries.daggerCompiler
+
+    compile libraries.retrofit
+    compile libraries.retrofitGsonConverter
+    compile libraries.retrofitRxAdapter
+    compile libraries.rxAndroid
+    compile libraries.rxJava
+    compile libraries.timber
+
+    provided libraries.autoValue
+    provided libraries.autoValueParcelAdapter
+    apt libraries.autoValueParcel
+    compile libraries.prettyTime
+
+    compile libraries.javaxAnnotationApi
+    compile libraries.jsr305
+    testCompile libraries.junit
+    testCompile libraries.retrofitMock
+
+    androidTestCompile libraries.supportTestRunner
+    androidTestCompile libraries.supportTestRules
+}
+
+retrolambda {
+    jvmArgs '-noverify'
+}

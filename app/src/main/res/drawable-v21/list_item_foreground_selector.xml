@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <ripple android:color="@color/zeta_black_at_25_percent_opacity">
+            <item android:id="@android:id/mask">
+                <shape android:shape="rectangle">
+                    <solid android:color="@android:color/black" />
+                </shape>
+            </item>
+        </ripple>
+    </item>
+
+
+</layer-list>

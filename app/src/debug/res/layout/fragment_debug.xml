@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pdp_v2_scroll_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/zeta_white"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@drawable/divider_background"
+        android:orientation="vertical"
+        android:showDividers="middle|end">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/default_5x_padding_margin">
+
+            <TextView
+                android:id="@+id/debug_inspection_tools_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/default_3x_padding_margin"
+                android:text="@string/debug_developer_inspection_tools"
+                android:textColor="@color/zeta_md_black_1000"
+                android:textSize="@dimen/largeTextSize" />
+
+            <android.support.v7.widget.SwitchCompat
+                android:id="@+id/debug_switch_enable_stetho"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="?attr/listPreferredItemHeightSmall"
+                android:text="@string/enable_stetho" />
+
+            <android.support.v7.widget.SwitchCompat
+                android:id="@+id/debug_switch_enable_strict_mode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="?attr/listPreferredItemHeightSmall"
+                android:text="@string/enable_strict_mode" />
+
+            <android.support.v7.widget.SwitchCompat
+                android:id="@+id/debug_switch_enable_tiny_dancer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="?attr/listPreferredItemHeightSmall"
+                android:text="@string/enable_tiny_dancer" />
+
+            <android.support.v7.widget.SwitchCompat
+                android:id="@+id/debug_switch_enable_leaky_canary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="?attr/listPreferredItemHeightSmall"
+                android:text="@string/enable_leaky_canary" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/debug_inspection_tools_apply"
+                style="@style/IndigoButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_2x_padding_margin"
+                android:text="@string/debug_apply_btn" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/default_5x_padding_margin">
+
+            <TextView
+                android:id="@+id/debug_logging_tools_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/default_3x_padding_margin"
+                android:text="@string/debug_developer_logging_tools"
+                android:textColor="@color/zeta_md_black_1000"
+                android:textSize="@dimen/largeTextSize" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/debug_logging_level_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/default_2x_padding_margin"
+                    android:layout_weight="0.8"
+                    android:gravity="center_vertical"
+                    android:text="@string/debug_developer_logging_level"
+                    android:textColor="@color/zeta_md_black_1000"
+                    android:textSize="@dimen/smallTextSize" />
+
+                <Spinner
+                    android:id="@+id/debug_logging_level_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/default_2x_padding_margin"
+                    android:layout_weight="0.2"
+                    android:gravity="end" />
+
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/debug_logging_apply"
+                style="@style/IndigoButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_2x_padding_margin"
+                android:text="@string/debug_apply_btn" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/default_5x_padding_margin">
+
+            <TextView
+                android:id="@+id/debug_capture_logs_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/default_3x_padding_margin"
+                android:text="@string/debug_capture_logs_title"
+                android:textColor="@color/zeta_md_black_1000"
+                android:textSize="@dimen/largeTextSize" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/debug_capture_logs"
+                style="@style/IndigoButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/debug_capture_logs" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>

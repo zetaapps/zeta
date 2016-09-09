@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Zeta</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="zeta_header_title">Zeta</string>
+    <string name="zeta_header_subtitle">manjunath.c83@gmail.com</string>
+
+    <string name="zeta_navigation_home">Home</string>
+    <string name="zeta_navigation_flickr">Flickr</string>
+    <string name="zeta_navigation_score">Score</string>
+
+    <string name="zeta_navigation_sub_menu_title">Submenu</string>
+    <string name="zeta_navigation_sub_menu_favorite">Favorites</string>
+    <string name="zeta_navigation_sub_menu_settings">Settings</string>
+    <string name="zeta_navigation_sub_menu_developer">Developer Settings</string>
+
+</resources>

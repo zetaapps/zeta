@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:opacity="opaque">
+    <item android:drawable="@color/zeta_md_red_500" />
+
+    <item>
+        <shape
+            android:dither="true"
+            android:shape="rectangle">
+            <gradient
+                android:endColor="@color/zeta_md_indigo_700"
+                android:gradientRadius="495.0"
+                android:startColor="@color/zeta_md_indigo_500"
+                android:type="radial" />
+        </shape>
+    </item>
+
+    <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/ic_splash"
+            android:tileMode="disabled" />
+    </item>
+
+
+</layer-list>

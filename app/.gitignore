@@ -1,0 +1,17 @@
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/misc.xml
+devlocal.properties
+
+*.apk
+*.ap_
+*.dex
+*.class
+*.iml
+
+bin/
+gen/
+build/
+
+Thumbs.db

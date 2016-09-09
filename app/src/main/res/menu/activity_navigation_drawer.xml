@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_black_48dp"
+            android:title="@string/zeta_navigation_home" />
+
+        <item
+            android:id="@+id/nav_score"
+            android:icon="@drawable/ic_chat_black_48dp"
+            android:title="@string/zeta_navigation_score" />
+
+        <item
+            android:id="@+id/nav_flickr"
+            android:icon="@drawable/ic_people_black_48dp"
+            android:title="@string/zeta_navigation_flickr" />
+
+    </group>
+
+    <item android:title="@string/zeta_navigation_sub_menu_title">
+
+        <menu>
+            <item
+                android:id="@+id/nav_favorites"
+                android:icon="@drawable/ic_bookmark_black_48dp"
+                android:title="@string/zeta_navigation_sub_menu_favorite" />
+
+            <item
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/ic_settings_black_48dp"
+                android:title="@string/zeta_navigation_sub_menu_settings" />
+
+            <item
+                android:id="@+id/nav_debug"
+                android:icon="@drawable/ic_developer_mode_black_48dp"
+                android:title="@string/zeta_navigation_sub_menu_developer" />
+        </menu>
+
+    </item>
+
+</menu>

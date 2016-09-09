@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Zeta (D)</string>
+
+    <string name="enable_stetho">Enable Stetho</string>
+    <string name="enable_tiny_dancer">Enable Tiny Dancer</string>
+    <string name="enable_strict_mode">Enable Strict mode</string>
+    <string name="enable_leaky_canary">Enable Leaky canary</string>
+    <string name="debug_developer_logging_level">Logging Level</string>
+    <string name="debug_apply_btn">Apply (will restart)</string>
+    <string name="debug_developer_inspection_tools">Inspection Tools</string>
+    <string name="debug_developer_logging_tools">Logging Tools</string>
+    <string name="debug_will_restart">restarting app…</string>
+    <string name="debug_capture_logs_title">Logcat console</string>
+    <string name="debug_capture_logs">capture logs</string>
+
+</resources>

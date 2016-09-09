@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="zeta_error_loading">Error loading!</string>
+    <string name="zeta_no_network">No network connectivity!</string>
+
+    <string name="zeta_flick_image_cd">image for %s</string>
+
+</resources>

@@ -1,0 +1,213 @@
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.android.application'
+apply plugin: 'com.fernandocejas.frodo'
+apply plugin: 'com.neenbedankt.android-apt'
+
+android {
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    defaultConfig {
+        applicationId "zeta.andriod.apps"
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode 3
+        versionName "1.0.3"
+        multiDexEnabled true
+    }
+
+    buildTypes {
+
+        automation.initWith(buildTypes.debug)
+        automation {
+            applicationIdSuffix ".automation"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            applicationIdSuffix ".debug"
+            minifyEnabled false
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+
+        free {
+            applicationIdSuffix ".free"
+            versionCode 3
+            versionName "1.0.3.1"
+        }
+
+        paid {
+            applicationIdSuffix ".paid"
+            versionCode 3
+            versionName "1.0.3.2"
+        }
+    }
+
+    aaptOptions {
+        cruncherEnabled = false
+    }
+
+    testBuildType "automation"
+
+    lintOptions {
+        warningsAsErrors false
+        abortOnError false
+
+        //App does not have deep linking.
+        disable 'GoogleAppIndexingWarning'
+        //Okio references java.nio that does not presented in Android SDK.
+        disable 'InvalidPackage'
+
+        xmlReport false
+        htmlReport true
+        lintConfig file("${project.rootDir}/../code_quality/lint/lint.xml")
+        htmlOutput file("$project.buildDir/reports/lint/lint-result.html")
+        xmlOutput file("$project.buildDir/reports/lint/lint-result.xml")
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets {
+        // Unit tests for debug build type specific code live in src/debugTest.
+        testDebug.java.srcDir 'src/debugTest/java'
+    }
+
+    packagingOptions {
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'com/sun/jna/aix-ppc/libjnidispatch.a'
+        exclude 'com/sun/jna/darwin/libjnidispatch.jnilib'
+        exclude 'com/sun/jna/win32-x86-64/jnidispatch.dll'
+        exclude 'com/sun/jna/win32-x86/jnidispatch.dll'
+        exclude 'com/sun/jna/win32ce-arm/jnidispatch.dll'
+        exclude 'com/sun/jna/w32ce-arm/jnidispatch.dll'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+
+    // This allows us see tests execution progress in the output on the CI.
+    testOptions.unitTests.all {
+        testLogging {
+            events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
+            exceptionFormat 'full'
+        }
+    }
+
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile project(':flickr')
+
+    //PLAY SERVICES
+    compile libraries.appIndexing
+    compile libraries.playServicesAd
+    compile libraries.playServicesGcm
+    compile libraries.playServicesMaps
+    compile libraries.playServicesLocation
+
+    //SUPPORT LIBS
+    compile libraries.supportV13
+    compile libraries.supportDesign
+    compile libraries.supportCardView
+    compile libraries.supportMultiDex
+    compile libraries.supportAppCompat
+    compile libraries.supportRecyclerView
+
+    compile libraries.eventBus
+    compile libraries.butterKnife
+
+    //IMAGE PROCESSING
+    compile libraries.glide
+    compile(libraries.glideOkHttp) {
+        exclude group: 'glide-parent'
+    }
+
+    compile(libraries.bundler) {
+        // exclude this because Bundler refers to an old version of the support lib
+        exclude group: 'com.google.android'
+    }
+
+    //UTILS
+    compile libraries.jsr305
+    compile libraries.javaxAnnotationApi
+
+    //NETWORK
+    compile libraries.okHttp3
+    compile libraries.okHttp3LogInterceptor
+    compile libraries.retrofit
+    compile libraries.retrofitGsonConverter
+    compile libraries.persistentCookieJar
+
+    //PROGRAMMING
+    compile libraries.rxJava
+    compile libraries.rxAndroid
+    compile libraries.dagger
+    apt libraries.daggerCompiler
+    provided libraries.autoValue
+    apt libraries.autoValueParcel
+
+    //Zeta
+    compile libraries.zetaUtils
+    compile libraries.zetaListItemDivider
+    compile libraries.zetaHeaderAndFooterAdapters
+
+    //DEVELOPER TOOLS
+    compile libraries.timber
+    debugCompile libraries.lynx
+    debugCompile libraries.stetho
+    debugCompile libraries.tinyDancer
+    debugCompile libraries.leakcanary
+    releaseCompile libraries.leakcanaryNoOp
+    automationCompile libraries.leakcanaryNoOp
+
+    //TESTING
+    testCompile libraries.junit
+    testCompile libraries.assertJ
+    testCompile libraries.mockitoCore
+    testCompile libraries.robolectric
+    testCompile libraries.equalsVerifier
+    testCompile libraries.okHttpMockWebServer
+
+    androidTestCompile libraries.dexmaker
+    androidTestCompile libraries.espressoCore
+    androidTestCompile libraries.dexmakerMockito
+    androidTestCompile libraries.supportTestRules
+    androidTestCompile libraries.supportTestRunner
+    androidTestCompile(libraries.espressoContrib) {
+        // Causes IncompatibleClassChangeError. As always…
+        exclude module: 'support-annotations'
+        exclude module: 'recyclerview-v7'
+        exclude module: 'support-v4'
+    }
+}
+
+configurations.all {
+    resolutionStrategy {
+        // Force our version of support-annotations, we have a conflict between app and androidTest dependency resolution.
+        force libraries.supportAnnotations
+    }
+}
+
+retrolambda {
+    jvmArgs '-noverify'
+}
+

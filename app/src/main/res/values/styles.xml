@@ -1,0 +1,100 @@
+<resources>
+
+    <style name="AppTheme" parent="AppThemeBase" />
+
+    <style name="AppTheme.Launcher" parent="AppTheme.NoActionBar">
+        <item name="android:windowBackground">@drawable/launch_screen</item>
+    </style>
+
+    <style name="AppThemeBase" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:listPopupWindowStyle">@style/Zeta.ListPopUpWindow</item>
+        <item name="android:dropDownListViewStyle">@style/Zeta.ListView.Dropdown</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:textColorSecondary">@color/zeta_md_indigo_700</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="searchViewStyle">@style/Zeta.SearchView</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="android:itemTextAppearance">@style/MenuTextAppearance</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.Dialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="MenuTextAppearance" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
+        <item name="android:textColor">@color/zeta_md_black_1000</item>
+    </style>
+
+    <style name="Zeta.ListView.Dropdown" parent="Base.Widget.AppCompat.ListView.DropDown">
+        <item name="android:background">@color/zeta_white</item>
+        <item name="android:textColor">@color/zeta_md_black_1000</item>
+        <item name="android:textSize">@dimen/smallTextSize</item>
+    </style>
+
+    <style name="Zeta.ListPopUpWindow" parent="Widget.AppCompat.ListPopupWindow">
+        <item name="android:dropDownVerticalOffset">-30dp</item>
+        <item name="android:dropDownHorizontalOffset">4dp</item>
+    </style>
+
+    <style name="Zeta.SearchView" parent="@style/Widget.AppCompat.SearchView">
+        <item name="queryBackground">@android:color/transparent</item>
+        <item name="submitBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.GreenAccent" parent="AppTheme">
+        <item name="colorAccent">@color/zeta_md_green_700</item>
+        <item name="colorControlNormal">@color/zeta_md_grey_200</item>
+    </style>
+
+    <style name="AppTheme.RedAccent" parent="AppTheme">
+        <item name="colorAccent">@color/zeta_md_red_700</item>
+    </style>
+
+    <style name="AppTheme.Indigo" parent="AppTheme">
+        <item name="colorAccent">@color/zeta_md_indigo_700</item>
+    </style>
+
+    <style name="AppTheme.WhiteAccent" parent="AppTheme">
+        <item name="colorAccent">@color/zeta_white</item>
+    </style>
+
+    <style name="IndigoButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/btn_indigo_selector</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/zeta_white</item>
+        <item name="android:textSize">@dimen/mediumTextSize</item>
+    </style>
+
+    <style name="RetryImage">
+        <item name="android:src">@drawable/ic_refresh_black_48dp</item>
+    </style>
+
+    <style name="RetryImage.Selectable" parent="RetryImage">
+        <item name="android:background">@drawable/aluminum_gray_selector</item>
+    </style>
+
+    <style name="ZetaRecyclerListItem">
+        <item name="android:background">@color/zeta_white</item>
+    </style>
+
+    <style name="ZetaRecyclerListItem.Selectable" parent="ZetaRecyclerListItem">
+        <item name="android:foreground">@drawable/list_item_foreground_selector</item>
+    </style>
+
+
+</resources>

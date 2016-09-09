@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <size android:height="@dimen/default_2x_padding_margin" />
+    <stroke
+        android:width="@dimen/divider_width"
+        android:color="@color/zeta_md_grey_200" />
+    <solid android:color="@color/zeta_md_grey_100" />
+</shape>
