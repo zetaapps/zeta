@@ -99,124 +99,6 @@ mViews = null;
 
 ![Zeta](https://cloud.githubusercontent.com/assets/1502341/17842847/a5b84eb2-67ec-11e6-914f-d9d4bed2a876.jpeg "Zeta app preview")
 
-##Flickr Module 
-
-**Why flickr?**
-
-It's Free, Easy to use, Easy for demo app. 
-
-**What is Flickr Module?**
-
-Well, This is the heart of the zeta project. Imagine this to be your potential library(backend) if you will. The approach here is to have backend layer agnostic of application layer, what this means to us is flickr module can be shipped independently, tested independently, could be reused across application or even better can be open sourced.
-
-Take a look at `ZetaAppComponent` this is how `FlickrModule` gets all it's dependencies injected. `FlickrModule` primarily depends on `okHttp`. The reason we don't want to create `okHttp` instance inside `FlickrModule` is to have the `okHttp` instance shared across other libraries you must be using, Also this allow us to have only single copy of the `okHttp`
-
-```
-@Singleton
-@Component(modules = {
-        DebugModule.class,
-        NetworkModule.class,
-        EventBusModule.class,
-        ZetaAppModule.class,
-        ConfigModule.class,
-        FlickrModule.class,
-        OkHttpInterceptorsModule.class,
-        EventBusNoSubscriberModule.class})
-public interface ZetaAppComponent {
-
-...
-...
-...
-
-}
-```
-
-There could be scenario where your backend layer may need to apply custom intercepts / cache policy etc without changing the original `okHttp` instance. well, There is a way to do so, `FlickrModule` clones the original copy of the `okHttp` by using `okHttpClient.newBuilder()` and applies `Cache` and custom intercepts and returns custom `okHttp` of `@FlickrOkHttp` kind. 
-```
-    @Provides
-    @Singleton
-    @FlickrOkHttp
-    public OkHttpClient providesOkHttpClient(CachePolicy cachePolicy, @Named OkHttpClient okHttpClient) {
-        final long cacheMaxAgeInSeconds = cachePolicy.getCacheMaxAgeInSeconds();
-        final Cache cache = new Cache(cachePolicy.getCacheDirectory(), cachePolicy.getCacheSizeInMb());
-
-        return okHttpClient.newBuilder()
-                .cache(cache)
-                .addNetworkInterceptor(new CacheHeadersInterceptor(cacheMaxAgeInSeconds))
-                .build();
-    }
-```
-
-Note : We don't create new instance of `okHttp` here, Instead we clone it. This way we makes sure to carry all the intercepts or customization applied from application layer. Pretty cool huh? More cool stuffs yet to be unveiled. Keep reading.
-
-**Api Environments**
-
-We could have multiple Api environments like 
-        *      [Prod]
-        *      [Stage]
-        *      [UAT]
-        *      [DEV] etc. 
-
-We can define those `FlickrEnvironment` here.
-
-**Flickr API layer**
-
-Take a look `FlickrApi` in `package zetaapps.apps.flickr.api;`
-
-`http://api.flickr.com/services/feeds/photos_public.gne?id=xxxxxxxx&lang=en-us&format=json`
-This layer make sure to parse the API "as is". Idea here to keep the API layer dumb and have a provision to unit test it independently for the Api contracts. 
-
-**Flickr Model layer**
-
-Flickr model layer is the our opportunity to remodel the api. At times some api's response can be chaos with nested loops and what not!  Having model layer provides with a opportunity to clean up and make them more readable as per our own requirement. More importantly this layer can be unit tested independently as well.
-
-**Flickr Manager layer**
-
-Backend model can have multiple api supports, So are `managers` a gateway to these api's. `managers` helps defines the clear contract to access the api and it's response type. 
-
-Take a look at `FlickrImageManager` for `public Observable<OneOf<FlickrImageModel, FlickrException>> getFlickrImages() {
-...
-}` 
-This defines the clear contract for getting images from flickr. Looking at method we can say it can either return `FlickrImageModel` or `FlickrException`. Also notice this returns `Observable` RxJava yay!. Do whatever you want with this downstream. Like transform, retry etc. 
-
-As mentioned earlier, We transform Api layer to model layer for our convenience. 
-
-```
-    @RxLogObservable
-    public Observable<OneOf<FlickrImageModel, FlickrException>> getFlickrImages() {
-        return mFlickrApi.getImagesFromFlickr("json", "140440909@N04", 1)
-                .map(response -> Managers.buildOneOf(
-                        response,
-                        FlickrException::new,
-                        mFlickerTransfomer::transform));
-    }
-    
-```
-
-We are using RxJava's map to do our transformation, with lambda expression. Lambda expression makes it looks simple and more readable. Also if you notice we are using `Managers.buildOneOf` which checks and wraps `success` object or `error` object in one wrapper class called `OneOf`. 
-
-Also, see [@RxLogObservable](https://github.com/android10/frodo/wiki/@RxLogObservable) Which is used for logging all our RxStreams.
-
-**Flickr Transformer**
-
-Check `FlickrModelTransformer` for the detailed transformation from API layer to Model layer.
-
-```
-public interface ITransformer<T, R> {
-    R transform(T t);
-}
-```
-
-**Caching**
-
-`FlickrModule` applies it's own caching if not told by api's headers. Take a look at `CacheHeadersInterceptor`, idea here to add a minimum amount of caching for the API's for faster access. 
-
-It's given that overriding the header can be **dangerous**. However, if the server doesn't tell us to cache we want to add the cache information to the response on our own. Also our cache policy default values are very sensible & safe. 
-
-Note : Use this feature with care. To turn off the caching just set `CachePolicy` to `setCacheMaxAgeInSeconds(TimeUnit.MINUTES.toMinutes(0))` current default is `30 seconds`. Yep, That's too low and safe to assume. 
-
----
-
 ###Tests
 
 ####Unit tests
@@ -285,7 +167,7 @@ LICENCE
 
 Zeta by [Manjunath Chandrashekar](https://www.linkedin.com/in/manjunath-chandrashekar) is licensed under a [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
-    Copyright 2016 Manjunath Chandrashekar.
+    Copyright 2016 Manjunath Chandrashekar, Manij Shrestha, Collin Flynn.
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
