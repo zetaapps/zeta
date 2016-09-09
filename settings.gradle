@@ -1,1 +1,1 @@
-include ':app', ':flickr'
+include ':app', ':flickr', ':either'

@@ -24,7 +24,6 @@ import zeta.android.apps.ZetaApplication;
 import zeta.android.apps.activities.managers.INavigationFragmentManager;
 import zeta.android.apps.activities.managers.NavigationFragmentManager;
 import zeta.android.apps.developer.debug.DebugFragment;
-import zeta.android.apps.fragments.home.HomeFragment;
 import zeta.android.apps.views.common.BaseViews;
 
 public class NavigationActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
@@ -32,6 +31,39 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
 
     private Views mViews;
     private NavigationFragmentManager mNavigationFragmentManager;
+
+    static class Views extends BaseViews {
+
+        @Bind(R.id.zeta_drawer_layout)
+        DrawerLayout drawerLayout;
+
+        @Bind(R.id.zeta_app_bar_layout)
+        AppBarLayout appBarLayout;
+
+        @Bind(R.id.zeta_toolbar)
+        Toolbar toolbar;
+
+        @Bind(R.id.zeta_nav_view)
+        NavigationView navigationView;
+
+        @Bind(R.id.container)
+        View fragmentContainer;
+
+        ImageView headerImageView;
+
+        TextView headerTitle;
+
+        TextView headerEmail;
+
+        @SuppressWarnings("ConstantConditions")
+        Views(AppCompatActivity root) {
+            super(root.findViewById(R.id.zeta_drawer_layout));
+            final View headerView = navigationView.getHeaderView(0);
+            headerImageView = (ImageView) headerView.findViewById(R.id.header_image_view);
+            headerTitle = (TextView) headerView.findViewById(R.id.header_title);
+            headerEmail = (TextView) headerView.findViewById(R.id.header_email);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +93,7 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
         mViews.navigationView.setNavigationItemSelectedListener(this);
 
         if (savedInstanceState == null) {
-            mNavigationFragmentManager.addAsBaseFragment(HomeFragment.newInstance());
+            // mNavigationFragmentManager.addAsBaseFragment(HomeFragment.newInstance());
         }
     }
 
@@ -137,39 +169,6 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
             setTaskDescription(taskDescription);
         }
     }
-
     //endregion
 
-    static class Views extends BaseViews {
-
-        @Bind(R.id.zeta_drawer_layout)
-        DrawerLayout drawerLayout;
-
-        @Bind(R.id.zeta_app_bar_layout)
-        AppBarLayout appBarLayout;
-
-        @Bind(R.id.zeta_toolbar)
-        Toolbar toolbar;
-
-        @Bind(R.id.zeta_nav_view)
-        NavigationView navigationView;
-
-        @Bind(R.id.container)
-        View fragmentContainer;
-
-        ImageView headerImageView;
-
-        TextView headerTitle;
-
-        TextView headerEmail;
-
-        @SuppressWarnings("ConstantConditions")
-        Views(AppCompatActivity root) {
-            super(root.findViewById(R.id.zeta_drawer_layout));
-            final View headerView = navigationView.getHeaderView(0);
-            headerImageView = (ImageView) headerView.findViewById(R.id.header_image_view);
-            headerTitle = (TextView) headerView.findViewById(R.id.header_title);
-            headerEmail = (TextView) headerView.findViewById(R.id.header_email);
-        }
-    }
 }

@@ -2,12 +2,13 @@ package zeta.android.apps.rx;
 
 import android.support.annotation.Nullable;
 
+import com.github.zetaapps.either.Either;
+
 import rx.Subscriber;
 import timber.log.Timber;
 import zeta.android.apps.network.ZetaNoNetworkConnectivityException;
-import zeta.apps.flickr.models.common.OneOf;
 
-public abstract class ZetaSubscriber<S, F> extends Subscriber<OneOf<S, F>> {
+public abstract class ZetaSubscriber<S, F> extends Subscriber<Either<S, F>> {
 
     protected abstract void onSuccess(S success);
 
@@ -31,12 +32,12 @@ public abstract class ZetaSubscriber<S, F> extends Subscriber<OneOf<S, F>> {
     }
 
     @Override
-    final public void onNext(OneOf<S, F> seOneOf) {
-        if (seOneOf.failureValue != null) {
-            Timber.w("onNext FAILURE RESULT from subscriber %s, result=%s", this, seOneOf);
-            onFailure(seOneOf.failureValue);
+    final public void onNext(Either<S, F> either) {
+        if (either.failureValue != null) {
+            Timber.w("onNext FAILURE RESULT from subscriber %s, result=%s", this, either);
+            onFailure(either.failureValue);
         } else {
-            onSuccess(seOneOf.successValue);
+            onSuccess(either.successValue);
         }
     }
 

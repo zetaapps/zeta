@@ -1,2 +1,0 @@
-Get public photos feeds.
-https://api.flickr.com/services/feeds/photos_public.gne?format=json&id=140440909@N04

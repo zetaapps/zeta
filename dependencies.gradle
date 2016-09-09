@@ -43,6 +43,7 @@ ext.versions = [
         leakcanaryVersion                 : "1.4-beta2",
 
         zetaUtilsVersion                  : "0.1",
+        zetaEitherVersion                 : "0.1",
         zetaListItemDividerVersion        : "0.1",
         zetaHeaderAndFooterAdaptersVersion: "0.1",
 
@@ -133,6 +134,7 @@ ext.libraries = [
 
         //region zeta modular libraries
         zetaUtils                  : "com.github.zetaapps:utils:$versions.zetaUtilsVersion",
+        zetaEither                 : "com.github.zetaapps:either:$versions.zetaEitherVersion",
         zetaListItemDivider        : "com.github.zetaapps:List-Item-Divider:$versions.zetaListItemDividerVersion",
         zetaHeaderAndFooterAdapters: "com.github.zetaapps:Header-Footer-Adapter:$versions.zetaHeaderAndFooterAdaptersVersion",
         //endregion

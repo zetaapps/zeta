@@ -115,7 +115,6 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(':flickr')
 
     //PLAY SERVICES
     compile libraries.appIndexing
@@ -167,6 +166,7 @@ dependencies {
 
     //Zeta
     compile libraries.zetaUtils
+    compile libraries.zetaEither
     compile libraries.zetaListItemDivider
     compile libraries.zetaHeaderAndFooterAdapters
 
