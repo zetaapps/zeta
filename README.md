@@ -165,7 +165,7 @@ Automate all the builds Yay!
 LICENCE
 -----
 
-Zeta by [Manjunath Chandrashekar, Manij Shrestha, Collin Flynn](https://www.linkedin.com/in/manjunath-chandrashekar) is licensed under a [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+Zeta by [Manjunath Chandrashekar](https://www.linkedin.com/in/manjunath-chandrashekar), [Manij Shrestha](https://www.linkedin.com/in/manijshrestha), [Collin Flynn](https://www.linkedin.com/in/collin-flynn-32221233) is licensed under a [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
     Copyright 2016 Manjunath Chandrashekar, Manij Shrestha, Collin Flynn.
 
