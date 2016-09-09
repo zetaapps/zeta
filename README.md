@@ -3,7 +3,7 @@
 # ![Zeta](https://cloud.githubusercontent.com/assets/1502341/17840452/5f574d84-67cd-11e6-83a5-9abb590f399f.png?raw=true "Zeta Banner")
 
 [![Platform](https://img.shields.io/badge/platform-android-green.svg)](http://developer.android.com/index.html)
-![SDK](https://img.shields.io/badge/SDK-15%2B-green.svg)
+![SDK](https://img.shields.io/badge/SDK-16%2B-green.svg)
 ![Release](https://img.shields.io/badge/release-v1.0-green.svg)
 [![Build Status](https://api.travis-ci.org/manjunathc23/zeta.svg?branch=master)](https://api.travis-ci.org/manjunathc23/zeta)
 [![CircleCI](https://circleci.com/gh/manjunathc23/zeta.svg?style=svg)](https://circleci.com/gh/manjunathc23/zeta)
@@ -96,8 +96,6 @@ mViews = null;
     *      [RxAndroid](https://github.com/ReactiveX/RxAndroid)
     *      [Retrofit](https://github.com/square/retrofit)
     *      [Dagger](https://github.com/google/dagger)
-
-![Zeta](https://cloud.githubusercontent.com/assets/1502341/17842847/a5b84eb2-67ec-11e6-914f-d9d4bed2a876.jpeg "Zeta app preview")
 
 ###Tests
 
