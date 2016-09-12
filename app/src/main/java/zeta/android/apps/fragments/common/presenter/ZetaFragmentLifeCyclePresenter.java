@@ -3,7 +3,7 @@ package zeta.android.apps.fragments.common.presenter;
 import android.view.Menu;
 import android.view.MenuInflater;
 
-public interface FragmentLifeCyclePresenter<Presentation> {
+public interface ZetaFragmentLifeCyclePresenter<Presentation> {
 
     void onCreateOptionsMenu(Menu menu, MenuInflater inflater);
 

@@ -5,10 +5,10 @@ import android.support.annotation.CallSuper;
 import zeta.android.apps.rx.managers.RxSubscriptionManager;
 import zeta.android.apps.rx.interfaces.RxSchedulerProvider;
 
-public abstract class RxFragmentLifeCyclePresenter<Presentation> extends RxSubscriptionManager
-        implements FragmentLifeCyclePresenter<Presentation> {
+public abstract class ZetaRxFragmentLifeCyclePresenter<Presentation> extends RxSubscriptionManager
+        implements ZetaFragmentLifeCyclePresenter<Presentation> {
 
-    public RxFragmentLifeCyclePresenter(RxSchedulerProvider schedulerProvider) {
+    public ZetaRxFragmentLifeCyclePresenter(RxSchedulerProvider schedulerProvider) {
         super(schedulerProvider);
     }
 
