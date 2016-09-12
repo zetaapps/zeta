@@ -12,12 +12,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import okhttp3.logging.HttpLoggingInterceptor;
 import zeta.android.apps.R;
 import zeta.android.apps.developer.debug.presentation.DebugPresentation;
-import zeta.android.apps.fragments.common.presenter.RxFragmentLifeCyclePresenter;
+import zeta.android.apps.fragments.common.presenter.ZetaRxFragmentLifeCyclePresenter;
 import zeta.android.apps.rx.interfaces.RxSchedulerProvider;
 import zeta.android.apps.sharedPref.DebugSharedPreferences;
 
 @ParametersAreNonnullByDefault
-public class DebugPresenter extends RxFragmentLifeCyclePresenter<DebugPresentation> {
+public class DebugPresenter extends ZetaRxFragmentLifeCyclePresenter<DebugPresentation> {
 
     private DebugPresentation mPresentation;
 

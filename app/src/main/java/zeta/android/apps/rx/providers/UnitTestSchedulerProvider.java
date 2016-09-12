@@ -2,8 +2,8 @@ package zeta.android.apps.rx.providers;
 
 import rx.Scheduler;
 import rx.schedulers.Schedulers;
-import zeta.android.apps.qualifiers.ExistsForTesting;
 import zeta.android.apps.rx.interfaces.RxSchedulerProvider;
+import zeta.android.utils.annotation.ExistsForTesting;
 
 @ExistsForTesting
 public class UnitTestSchedulerProvider implements RxSchedulerProvider {

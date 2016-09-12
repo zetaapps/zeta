@@ -6,11 +6,11 @@ import android.view.MenuInflater;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import zeta.android.apps.developer.debug.presentation.DebugPresentation;
-import zeta.android.apps.fragments.common.presenter.RxFragmentLifeCyclePresenter;
+import zeta.android.apps.fragments.common.presenter.ZetaRxFragmentLifeCyclePresenter;
 import zeta.android.apps.rx.interfaces.RxSchedulerProvider;
 
 @ParametersAreNonnullByDefault
-public class DebugPresenter extends RxFragmentLifeCyclePresenter<DebugPresentation> {
+public class DebugPresenter extends ZetaRxFragmentLifeCyclePresenter<DebugPresentation> {
 
     public DebugPresenter(RxSchedulerProvider schedulerProvider) {
         super(schedulerProvider);

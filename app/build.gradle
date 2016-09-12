@@ -141,11 +141,11 @@ dependencies {
     }
 
     compile(libraries.bundler) {
-        // exclude this because Bundler refers to an old version of the support lib
+        // exclude this because bundler refers to an old version of the support lib
         exclude group: 'com.google.android'
     }
 
-    //UTILS
+    //ANNOTATION
     compile libraries.jsr305
     compile libraries.javaxAnnotationApi
 
@@ -154,7 +154,6 @@ dependencies {
     compile libraries.okHttp3LogInterceptor
     compile libraries.retrofit
     compile libraries.retrofitGsonConverter
-    compile libraries.persistentCookieJar
 
     //PROGRAMMING
     compile libraries.rxJava

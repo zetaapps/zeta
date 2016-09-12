@@ -1,7 +1,0 @@
-<resources>
-
-    <dimen name="zeta_progress_bar_width_height">48dp</dimen>
-    <dimen name="zeta_flickr_image_height_width">140dp</dimen>
-    <dimen name="zeta_flickr_list_item_min_height">120dp</dimen>
-
-</resources>

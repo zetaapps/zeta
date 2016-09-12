@@ -28,7 +28,6 @@ ext.versions = [
         rxAndroidVersion                  : "1.2.1",
 
         gsonVersion                       : "2.7",
-        cookieJarVersion                  : "v0.9.3",
 
         okIoVersion                       : "1.9.0",
         okHttp3Version                    : "3.4.1",
@@ -65,8 +64,8 @@ ext.versions = [
 
 ext.gradlePlugins = [
         androidTools: "com.android.tools.build:gradle:$versions.gradlePluginVersion",
-        frodo       : "com.fernandocejas.frodo:frodo-plugin:$versions.frodoPluginVersion",
         retroLambda : "me.tatarka:gradle-retrolambda:$versions.retroLambdaPluginVersion",
+        frodo       : "com.fernandocejas.frodo:frodo-plugin:$versions.frodoPluginVersion",
         apt         : "com.neenbedankt.gradle.plugins:android-apt:$versions.aptToolsPluginVersion",
         lombok      : "me.tatarka.retrolambda.projectlombok:lombok.ast:$versions.retrolombokPluginVersion"
 ]
@@ -74,14 +73,14 @@ ext.gradlePlugins = [
 ext.libraries = [
 
         //region support libraries
-        supportAppCompat           : "com.android.support:appcompat-v7:$versions.supportLibVersion",
-        supportAnnotations         : "com.android.support:support-annotations:$versions.supportLibVersion",
         supportDesign              : "com.android.support:design:$versions.supportLibVersion",
-        supportRecyclerView        : "com.android.support:recyclerview-v7:$versions.supportLibVersion",
+        supportMultiDex            : "com.android.support:multidex:$versions.multiDexVersion",
         supportV4                  : "com.android.support:support-v4:$versions.supportLibVersion",
         supportV13                 : "com.android.support:support-v13:$versions.supportLibVersion",
         supportCardView            : "com.android.support:cardview-v7:$versions.supportLibVersion",
-        supportMultiDex            : "com.android.support:multidex:$versions.multiDexVersion",
+        supportAppCompat           : "com.android.support:appcompat-v7:$versions.supportLibVersion",
+        supportRecyclerView        : "com.android.support:recyclerview-v7:$versions.supportLibVersion",
+        supportAnnotations         : "com.android.support:support-annotations:$versions.supportLibVersion",
         //endregion
 
         //region play services
@@ -116,7 +115,6 @@ ext.libraries = [
         rxAndroid                  : "io.reactivex:rxandroid:$versions.rxAndroidVersion",
 
         gson                       : "com.google.code.gson:gson:$versions.gsonVersion",
-        persistentCookieJar        : "com.github.franmontiel:PersistentCookieJar:$versions.cookieJarVersion",
         //endregion
 
         //region UTILS

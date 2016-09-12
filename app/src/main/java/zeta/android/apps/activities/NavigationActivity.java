@@ -26,8 +26,8 @@ import zeta.android.apps.activities.managers.NavigationFragmentManager;
 import zeta.android.apps.developer.debug.DebugFragment;
 import zeta.android.apps.views.common.BaseViews;
 
-public class NavigationActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
-        INavigationFragmentManager {
+public class NavigationActivity extends AppCompatActivity implements INavigationFragmentManager,
+        NavigationView.OnNavigationItemSelectedListener {
 
     private Views mViews;
     private NavigationFragmentManager mNavigationFragmentManager;
@@ -131,8 +131,6 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
         switch (item.getItemId()) {
             case R.id.nav_home:
                 mNavigationFragmentManager.clearToBaseFragment();
-                break;
-            case R.id.nav_flickr:
                 break;
             case R.id.nav_score:
                 break;

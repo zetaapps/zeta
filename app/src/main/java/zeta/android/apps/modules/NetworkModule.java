@@ -2,9 +2,6 @@ package zeta.android.apps.modules;
 
 import android.content.Context;
 
-import com.franmontiel.persistentcookiejar.cache.SetCookieCache;
-import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor;
-
 import java.util.List;
 
 import javax.inject.Named;
@@ -18,7 +15,6 @@ import zeta.android.apps.dagger.OkHttpInterceptors;
 import zeta.android.apps.dagger.OkHttpNetworkInterceptors;
 import zeta.android.apps.network.ConnectivityCheckInterceptor;
 import zeta.android.apps.providers.interfaces.ConnectivityProvider;
-import zeta.android.apps.sessionMangement.LazyLoadingPersistentCookieJar;
 
 @Module
 public class NetworkModule {
@@ -32,8 +28,6 @@ public class NetworkModule {
                                             @OkHttpNetworkInterceptors List<Interceptor> networkInterceptors) {
         //Common interceptors / other OkHttp builder things should go here
         final OkHttpClient.Builder okHttpBuilder = new OkHttpClient.Builder();
-        okHttpBuilder.cookieJar(new LazyLoadingPersistentCookieJar(new SetCookieCache(),
-                new SharedPrefsCookiePersistor(context)));
 
         //Check for no connectivity
         okHttpBuilder.addInterceptor(new ConnectivityCheckInterceptor(connectivityProvider));

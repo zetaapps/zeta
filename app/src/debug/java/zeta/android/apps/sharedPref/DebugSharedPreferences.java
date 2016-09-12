@@ -6,19 +6,17 @@ import android.support.annotation.NonNull;
 
 import okhttp3.logging.HttpLoggingInterceptor;
 import timber.log.Timber;
-import zeta.android.apps.environments.FlickrDebugEnv;
 
 public class DebugSharedPreferences {
 
     private static final String TAG = DebugSharedPreferences.class.getSimpleName();
     private static final String KEY_DEBUG_PREFS = TAG + "zetaDebugSharedPrefs";
 
-    private static final String KEY_ENABLE_STETHO = "enableSteho";
-    private static final String KEY_ENABLE_STRICT_MODE = "enableStrictMode";
-    private static final String KEY_ENABLE_TINY_DANCER = "enableTinyCanary";
-    private static final String KEY_ENABLE_LEAKY_CANARY = "enableLeakyCanary";
-    private static final String KEY_HTTP_LOGGING_LEVEL = "httpLoggingLevel";
-    private static final String KEY_FLICKR_CAST_ENV = "flickrEnv";
+    private static final String KEY_ENABLE_STETHO = "KEY_ENABLE_STETHO";
+    private static final String KEY_ENABLE_STRICT_MODE = "KEY_ENABLE_STRICT_MODE";
+    private static final String KEY_ENABLE_TINY_DANCER = "KEY_ENABLE_TINY_DANCER";
+    private static final String KEY_ENABLE_LEAKY_CANARY = "KEY_ENABLE_LEAKY_CANARY";
+    private static final String KEY_HTTP_LOGGING_LEVEL = "KEY_HTTP_LOGGING_LEVEL";
 
     private final Context mContext;
 
@@ -46,12 +44,6 @@ public class DebugSharedPreferences {
         return getDebugPrefs().getBoolean(KEY_ENABLE_TINY_DANCER, false);
     }
 
-    @SuppressWarnings("WrongConstant")
-    @FlickrDebugEnv
-    public int getCurrentFlickrEnvironment() {
-        return getDebugPrefs().getInt(KEY_FLICKR_CAST_ENV, FlickrDebugEnv.DEBUG_PROD);
-    }
-
     public void saveStethoEnabled(boolean enableStetho) {
         saveBoolean(KEY_ENABLE_STETHO, enableStetho);
     }
@@ -66,10 +58,6 @@ public class DebugSharedPreferences {
 
     public void saveTinyDancerEnabled(boolean enableTinyDancer) {
         saveBoolean(KEY_ENABLE_TINY_DANCER, enableTinyDancer);
-    }
-
-    public void saveHttpLoggingLevel(@FlickrDebugEnv int env) {
-        saveInteger(KEY_FLICKR_CAST_ENV, env);
     }
 
     @NonNull
