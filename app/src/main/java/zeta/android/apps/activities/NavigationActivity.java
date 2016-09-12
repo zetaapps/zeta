@@ -17,7 +17,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import zeta.android.apps.BuildConfig;
 import zeta.android.apps.R;
 import zeta.android.apps.ZetaApplication;
@@ -34,19 +34,19 @@ public class NavigationActivity extends AppCompatActivity implements INavigation
 
     static class Views extends BaseViews {
 
-        @Bind(R.id.zeta_drawer_layout)
+        @BindView(R.id.zeta_drawer_layout)
         DrawerLayout drawerLayout;
 
-        @Bind(R.id.zeta_app_bar_layout)
+        @BindView(R.id.zeta_app_bar_layout)
         AppBarLayout appBarLayout;
 
-        @Bind(R.id.zeta_toolbar)
+        @BindView(R.id.zeta_toolbar)
         Toolbar toolbar;
 
-        @Bind(R.id.zeta_nav_view)
+        @BindView(R.id.zeta_nav_view)
         NavigationView navigationView;
 
-        @Bind(R.id.container)
+        @BindView(R.id.container)
         View fragmentContainer;
 
         ImageView headerImageView;

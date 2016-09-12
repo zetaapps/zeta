@@ -24,7 +24,7 @@ import com.github.pedrovgs.lynx.LynxConfig;
 import javax.annotation.ParametersAreNonnullByDefault;
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import zeta.android.apps.R;
 import zeta.android.apps.ZetaAppComponent;
 import zeta.android.apps.developer.debug.presentation.DebugPresentation;
@@ -35,9 +35,44 @@ import zeta.android.apps.views.common.BaseViews;
 @ParametersAreNonnullByDefault
 public class DebugFragment extends BaseNavigationFragment implements DebugPresentation {
 
+    private Views mViews;
+
     @Inject
     public DebugPresenter mPresenter;
-    private Views mViews;
+
+    static class Views extends BaseViews {
+
+        @BindView(R.id.debug_inspection_tools_title)
+        TextView title;
+
+        @BindView(R.id.debug_switch_enable_stetho)
+        SwitchCompat switchStetho;
+
+        @BindView(R.id.debug_switch_enable_strict_mode)
+        SwitchCompat switchStrictMode;
+
+        @BindView(R.id.debug_switch_enable_tiny_dancer)
+        SwitchCompat switchTinyDancer;
+
+        @BindView(R.id.debug_switch_enable_leaky_canary)
+        SwitchCompat switchLeakyCanary;
+
+        @BindView(R.id.debug_inspection_tools_apply)
+        Button inspectionToolApplyBtn;
+
+        @BindView(R.id.debug_logging_level_spinner)
+        Spinner loggingSpinner;
+
+        @BindView(R.id.debug_logging_apply)
+        Button loggingToolApplyBtn;
+
+        @BindView(R.id.debug_capture_logs)
+        Button captureLogs;
+
+        Views(View root) {
+            super(root);
+        }
+    }
 
     public static DebugFragment newInstance() {
         return new DebugFragment();
@@ -185,37 +220,4 @@ public class DebugFragment extends BaseNavigationFragment implements DebugPresen
         getView().postDelayed(() -> android.os.Process.killProcess(android.os.Process.myPid()), delayMillis);
     }
 
-    static class Views extends BaseViews {
-
-        @Bind(R.id.debug_inspection_tools_title)
-        TextView title;
-
-        @Bind(R.id.debug_switch_enable_stetho)
-        SwitchCompat switchStetho;
-
-        @Bind(R.id.debug_switch_enable_strict_mode)
-        SwitchCompat switchStrictMode;
-
-        @Bind(R.id.debug_switch_enable_tiny_dancer)
-        SwitchCompat switchTinyDancer;
-
-        @Bind(R.id.debug_switch_enable_leaky_canary)
-        SwitchCompat switchLeakyCanary;
-
-        @Bind(R.id.debug_inspection_tools_apply)
-        Button inspectionToolApplyBtn;
-
-        @Bind(R.id.debug_logging_level_spinner)
-        Spinner loggingSpinner;
-
-        @Bind(R.id.debug_logging_apply)
-        Button loggingToolApplyBtn;
-
-        @Bind(R.id.debug_capture_logs)
-        Button captureLogs;
-
-        Views(View root) {
-            super(root);
-        }
-    }
 }

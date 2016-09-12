@@ -9,7 +9,7 @@ ext.versions = [
         dexmakerVersion                   : "1.2",
         multiDexVersion                   : "1.0.1",
 
-        butterKnifeVersion                : "7.0.1",
+        butterKnifeVersion                : "8.4.0",
         bundlerVersion                    : "1.1.2",
         eventBusVersion                   : "3.0.0",
 
@@ -63,11 +63,12 @@ ext.versions = [
 ]
 
 ext.gradlePlugins = [
-        androidTools: "com.android.tools.build:gradle:$versions.gradlePluginVersion",
-        retroLambda : "me.tatarka:gradle-retrolambda:$versions.retroLambdaPluginVersion",
-        frodo       : "com.fernandocejas.frodo:frodo-plugin:$versions.frodoPluginVersion",
-        apt         : "com.neenbedankt.gradle.plugins:android-apt:$versions.aptToolsPluginVersion",
-        lombok      : "me.tatarka.retrolambda.projectlombok:lombok.ast:$versions.retrolombokPluginVersion"
+        androidToolsPlugin: "com.android.tools.build:gradle:$versions.gradlePluginVersion",
+        retroLambdaPlugin : "me.tatarka:gradle-retrolambda:$versions.retroLambdaPluginVersion",
+        frodoPlugin       : "com.fernandocejas.frodo:frodo-plugin:$versions.frodoPluginVersion",
+        butterKnifePlugin : "com.jakewharton:butterknife-gradle-plugin:$versions.butterKnifeVersion",
+        aptPlugin         : "com.neenbedankt.gradle.plugins:android-apt:$versions.aptToolsPluginVersion",
+        lombokPlugin      : "me.tatarka.retrolambda.projectlombok:lombok.ast:$versions.retrolombokPluginVersion"
 ]
 
 ext.libraries = [
@@ -122,6 +123,7 @@ ext.libraries = [
         autoValueParcel            : "com.ryanharter.auto.value:auto-value-parcel:$versions.autoValueParcel",
         autoValueParcelAdapter     : "com.ryanharter.auto.value:auto-value-parcel-adapter:$versions.autoValueParcel",
         butterKnife                : "com.jakewharton:butterknife:$versions.butterKnifeVersion",
+        butterKnifeCompiler        : "com.jakewharton:butterknife-compiler:$versions.butterKnifeVersion",
         bundler                    : "com.f2prateek.bundler:bundler:$versions.bundlerVersion",
         eventBus                   : "org.greenrobot:eventbus:$versions.eventBusVersion",
         jsr305                     : "com.google.code.findbugs:$versions.jsr305Version",

@@ -23,7 +23,6 @@ public abstract class BaseViews {
 
     @CallSuper
     public void clear() {
-        ButterKnife.unbind(mRoot);
         mRoot = null;
     }
 
