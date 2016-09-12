@@ -43,7 +43,7 @@ ext.versions = [
         leakcanaryVersion                 : "1.4-beta2",
 
         zetaUtilsVersion                  : "0.1",
-        zetaEitherVersion                 : "0.1",
+        zetaEitherVersion                 : "0.2",
         zetaListItemDividerVersion        : "0.1",
         zetaHeaderAndFooterAdaptersVersion: "0.1",
 
