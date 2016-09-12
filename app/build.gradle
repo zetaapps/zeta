@@ -66,7 +66,7 @@ android {
 
     lintOptions {
         warningsAsErrors false
-        abortOnError false
+        abortOnError true
 
         //App does not have deep linking.
         disable 'GoogleAppIndexingWarning'
@@ -75,7 +75,7 @@ android {
 
         xmlReport false
         htmlReport true
-        lintConfig file("${project.rootDir}/../config/lint/lint.xml")
+        lintConfig file("${project.rootDir}/config/lint/lint.xml")
         htmlOutput file("$project.buildDir/reports/lint/lint-result.html")
         xmlOutput file("$project.buildDir/reports/lint/lint-result.xml")
     }
