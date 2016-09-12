@@ -122,14 +122,22 @@ ext.libraries = [
         autoValue                  : "com.google.auto.value:auto-value:$versions.autoValue",
         autoValueParcel            : "com.ryanharter.auto.value:auto-value-parcel:$versions.autoValueParcel",
         autoValueParcelAdapter     : "com.ryanharter.auto.value:auto-value-parcel-adapter:$versions.autoValueParcel",
+
         butterKnife                : "com.jakewharton:butterknife:$versions.butterKnifeVersion",
         butterKnifeCompiler        : "com.jakewharton:butterknife-compiler:$versions.butterKnifeVersion",
-        bundler                    : "com.f2prateek.bundler:bundler:$versions.bundlerVersion",
+
         eventBus                   : "org.greenrobot:eventbus:$versions.eventBusVersion",
+        bundler                    : "com.f2prateek.bundler:bundler:$versions.bundlerVersion",
+        prettyTime                 : "org.ocpsoft.prettytime:prettytime:$versions.prettyTimeVersion",
+        //endregion
+
+        //region DATABASE
+        ormlite                    : "com.j256.ormlite:ormlite-android:$versions.ormliteVersion",
+        //endregion
+
+        //region ANNOTATION
         jsr305                     : "com.google.code.findbugs:$versions.jsr305Version",
         javaxAnnotationApi         : "javax.annotation:javax.annotation-api:$versions.javaxAnnotationApiVersion",
-        prettyTime                 : "org.ocpsoft.prettytime:prettytime:$versions.prettyTimeVersion",
-        ormlite                    : "com.j256.ormlite:ormlite-android:$versions.ormliteVersion",
         //endregion
 
         //region zeta modular libraries
@@ -151,15 +159,19 @@ ext.libraries = [
         //region TESTING DEPENDENCIES
         junit                      : "junit:junit:$versions.junitVersion",
         assertJ                    : "org.assertj:assertj-core:$versions.assertJVersion",
+        robolectric                : "org.robolectric:robolectric:$versions.robolectricVersion",
         equalsVerifier             : "nl.jqno.equalsverifier:equalsverifier:$versions.equalsVerifierVersion",
+
         mockitoCore                : "org.mockito:mockito-core:$versions.mockitoVersion",
-        retrofitMock               : "com.squareup.retrofit2:retrofit-mock:$versions.retrofitVersion",
         okHttpMockWebServer        : "com.squareup.okhttp3:mockwebserver:$versions.okHttp3Version",
-        supportTestRunner          : "com.android.support.test:runner:$versions.supportTestRunnerVersion",
+        retrofitMock               : "com.squareup.retrofit2:retrofit-mock:$versions.retrofitVersion",
+
         supportTestRules           : "com.android.support.test:rules:$versions.supportTestRunnerVersion",
+        supportTestRunner          : "com.android.support.test:runner:$versions.supportTestRunnerVersion",
+        
         dexmaker                   : "com.google.dexmaker:dexmaker:$versions.dexmakerVersion",
         dexmakerMockito            : "com.google.dexmaker:dexmaker-mockito:$versions.dexmakerVersion",
-        robolectric                : "org.robolectric:robolectric:$versions.robolectricVersion",
+
         espressoCore               : "com.android.support.test.espresso:espresso-core:$versions.espressoVersion",
         espressoContrib            : "com.android.support.test.espresso:espresso-contrib:$versions.espressoVersion",
         //endregion

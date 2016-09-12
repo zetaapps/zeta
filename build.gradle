@@ -141,7 +141,6 @@ subprojects {
         //checkTask.dependsOn('pmd')
         //checkTask.dependsOn('findbugs')
         //checkTask.dependsOn('checkstyle')
-        //checkTask.dependsOn('lint')
 
         // Log instrumentation tests results.
         tasks.withType(AndroidTestTask) { task ->
