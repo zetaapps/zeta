@@ -9,7 +9,7 @@ import javax.inject.Inject;
 import dagger.Lazy;
 import rx.plugins.RxJavaHooks;
 import zeta.android.apps.modules.ZetaAppModule;
-import zeta.android.apps.rx.RxErrorHandler;
+import zeta.android.apps.rx.handlers.RxErrorHandler;
 import zeta.android.apps.tools.DeveloperTools;
 
 @ParametersAreNonnullByDefault

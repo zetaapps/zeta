@@ -1,4 +1,4 @@
-package zeta.android.apps.rx;
+package zeta.android.apps.rx.managers;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 

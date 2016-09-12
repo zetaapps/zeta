@@ -2,7 +2,7 @@ package zeta.android.apps.fragments.common.presenter;
 
 import android.support.annotation.CallSuper;
 
-import zeta.android.apps.rx.RxSubscriptionManager;
+import zeta.android.apps.rx.managers.RxSubscriptionManager;
 import zeta.android.apps.rx.interfaces.RxSchedulerProvider;
 
 public abstract class RxFragmentLifeCyclePresenter<Presentation> extends RxSubscriptionManager

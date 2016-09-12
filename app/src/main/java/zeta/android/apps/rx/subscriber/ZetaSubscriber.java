@@ -1,4 +1,4 @@
-package zeta.android.apps.rx;
+package zeta.android.apps.rx.subscriber;
 
 import android.support.annotation.Nullable;
 

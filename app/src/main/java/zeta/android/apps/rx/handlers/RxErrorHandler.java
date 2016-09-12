@@ -1,4 +1,4 @@
-package zeta.android.apps.rx;
+package zeta.android.apps.rx.handlers;
 
 import rx.functions.Action1;
 import timber.log.Timber;
