@@ -5,9 +5,9 @@
 [![Platform](https://img.shields.io/badge/platform-android-green.svg)](http://developer.android.com/index.html)
 ![SDK](https://img.shields.io/badge/SDK-16%2B-green.svg)
 ![Release](https://img.shields.io/badge/release-v1.0-green.svg)
-[![Build Status](https://api.travis-ci.org/manjunathc23/zeta.svg?branch=master)](https://api.travis-ci.org/manjunathc23/zeta)
-[![CircleCI](https://circleci.com/gh/manjunathc23/zeta.svg?style=svg)](https://circleci.com/gh/manjunathc23/zeta)
-[![codecov.io](https://codecov.io/gh/manjunathc23/zeta/coverage.svg?branch=master)](https://codecov.io/gh/manjunathc23/zeta?branch=master)
+[![Build Status](https://travis-ci.org/zetaapps/zeta.svg?branch=master)](https://travis-ci.org/zetaapps/zeta)
+[![CircleCI](https://circleci.com/gh/zetaapps/zeta.svg?style=svg)](https://circleci.com/gh/zetaapps/zeta)
+[![codecov](https://codecov.io/gh/zetaapps/zeta/branch/master/graph/badge.svg)](https://codecov.io/gh/zetaapps/zeta)
 
 <a href="https://play.google.com/store/apps/details?id=zeta.andriod.apps.free">
 <img align="middle" alt="Get it on Google Play" src="https://cloud.githubusercontent.com/assets/1502341/17841713/0670bc32-67e1-11e6-907e-2f850d755b8f.png" />
