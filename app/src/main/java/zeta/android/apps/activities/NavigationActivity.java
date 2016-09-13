@@ -4,7 +4,6 @@ import android.app.ActivityManager;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,9 +16,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import zeta.android.apps.BuildConfig;
 import zeta.android.apps.R;
+import zeta.android.apps.ZetaAppComponent;
 import zeta.android.apps.ZetaApplication;
 import zeta.android.apps.activities.managers.INavigationFragmentManager;
 import zeta.android.apps.activities.managers.NavigationFragmentManager;
@@ -65,6 +67,19 @@ public class NavigationActivity extends AppCompatActivity implements INavigation
         }
     }
 
+    @Inject
+    protected void setNavigationFragmentManager(NavigationFragmentManager navigationFragmentManager) {
+        mNavigationFragmentManager = navigationFragmentManager;
+        mNavigationFragmentManager.setFragmentManager(getSupportFragmentManager());
+        mNavigationFragmentManager.setContainerId(R.id.container);
+        mNavigationFragmentManager.setDrawerLayout(mViews.drawerLayout);
+        mNavigationFragmentManager.setDrawer(mViews.navigationView);
+    }
+
+    protected void configureDependencies(ZetaAppComponent component) {
+        component.navigationActivity().inject(this);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
@@ -73,13 +88,11 @@ public class NavigationActivity extends AppCompatActivity implements INavigation
         setContentView(R.layout.activity_navigation);
 
         mViews = new Views(this);
-        setSupportActionBar(mViews.toolbar);
 
-        final FragmentManager supportFragmentManager = getSupportFragmentManager();
-        mNavigationFragmentManager = new NavigationFragmentManager(supportFragmentManager,
-                R.id.container,
-                mViews.drawerLayout,
-                mViews.navigationView);
+        ZetaApplication application = (ZetaApplication) getApplication();
+        configureDependencies(application.getZetaAppComponent());
+
+        setSupportActionBar(mViews.toolbar);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, mViews.drawerLayout, mViews.toolbar,
