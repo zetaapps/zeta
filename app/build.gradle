@@ -59,6 +59,7 @@ android {
     }
 
     aaptOptions {
+        //Note: If you did not apply PNG optimization on your own, you may want this to be true
         cruncherEnabled = false
     }
 
