@@ -4,6 +4,7 @@ import android.app.ActivityManager;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -16,23 +17,18 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import javax.inject.Inject;
-
 import butterknife.BindView;
 import zeta.android.apps.BuildConfig;
 import zeta.android.apps.R;
 import zeta.android.apps.ZetaAppComponent;
 import zeta.android.apps.ZetaApplication;
-import zeta.android.apps.activities.managers.INavigationFragmentManager;
 import zeta.android.apps.activities.managers.NavigationFragmentManager;
 import zeta.android.apps.developer.debug.DebugFragment;
 import zeta.android.apps.views.common.BaseViews;
 
-public class NavigationActivity extends AppCompatActivity implements INavigationFragmentManager,
-        NavigationView.OnNavigationItemSelectedListener {
+public class NavigationActivity extends BaseNavigationActivity {
 
     private Views mViews;
-    private NavigationFragmentManager mNavigationFragmentManager;
 
     static class Views extends BaseViews {
 
@@ -67,15 +63,7 @@ public class NavigationActivity extends AppCompatActivity implements INavigation
         }
     }
 
-    @Inject
-    protected void setNavigationFragmentManager(NavigationFragmentManager navigationFragmentManager) {
-        mNavigationFragmentManager = navigationFragmentManager;
-        mNavigationFragmentManager.setFragmentManager(getSupportFragmentManager());
-        mNavigationFragmentManager.setContainerId(R.id.container);
-        mNavigationFragmentManager.setDrawerLayout(mViews.drawerLayout);
-        mNavigationFragmentManager.setDrawer(mViews.navigationView);
-    }
-
+    @Override
     protected void configureDependencies(ZetaAppComponent component) {
         component.navigationActivity().inject(this);
     }
@@ -88,11 +76,13 @@ public class NavigationActivity extends AppCompatActivity implements INavigation
         setContentView(R.layout.activity_navigation);
 
         mViews = new Views(this);
-
-        ZetaApplication application = (ZetaApplication) getApplication();
-        configureDependencies(application.getZetaAppComponent());
-
         setSupportActionBar(mViews.toolbar);
+
+        final FragmentManager supportFragmentManager = getSupportFragmentManager();
+        mNavigationFragmentManager.setFragmentManager(supportFragmentManager);
+        mNavigationFragmentManager.setContainerId(R.id.container);
+        mNavigationFragmentManager.setDrawerLayout(mViews.drawerLayout);
+        mNavigationFragmentManager.setDrawer(mViews.navigationView);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, mViews.drawerLayout, mViews.toolbar,
