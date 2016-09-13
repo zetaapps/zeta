@@ -22,12 +22,20 @@ public class NavigationFragmentManager {
     private int mContainerId;
     private FragmentManager mFragmentManager;
 
-    public NavigationFragmentManager(FragmentManager fragmentManager, @IdRes int containerId,
-                                     @Nullable DrawerLayout drawerLayout, @Nullable View drawer) {
-        mFragmentManager = fragmentManager;
-        mContainerId = containerId;
-        mDrawerLayout = drawerLayout;
+    public void setDrawer(@Nullable View drawer) {
         mDrawer = drawer;
+    }
+
+    public void setDrawerLayout(@Nullable DrawerLayout drawerLayout) {
+        mDrawerLayout = drawerLayout;
+    }
+
+    public void setContainerId(@IdRes int containerId) {
+        mContainerId = containerId;
+    }
+
+    public void setFragmentManager(@NonNull FragmentManager fragmentManager) {
+        mFragmentManager = fragmentManager;
     }
 
     private static Transition getTransitionOrNull(Object object) {

@@ -20,17 +20,15 @@ import android.widget.TextView;
 import butterknife.BindView;
 import zeta.android.apps.BuildConfig;
 import zeta.android.apps.R;
+import zeta.android.apps.ZetaAppComponent;
 import zeta.android.apps.ZetaApplication;
-import zeta.android.apps.activities.managers.INavigationFragmentManager;
 import zeta.android.apps.activities.managers.NavigationFragmentManager;
 import zeta.android.apps.developer.debug.DebugFragment;
 import zeta.android.apps.views.common.BaseViews;
 
-public class NavigationActivity extends AppCompatActivity implements INavigationFragmentManager,
-        NavigationView.OnNavigationItemSelectedListener {
+public class NavigationActivity extends BaseNavigationActivity {
 
     private Views mViews;
-    private NavigationFragmentManager mNavigationFragmentManager;
 
     static class Views extends BaseViews {
 
@@ -66,6 +64,11 @@ public class NavigationActivity extends AppCompatActivity implements INavigation
     }
 
     @Override
+    protected void configureDependencies(ZetaAppComponent component) {
+        component.navigationActivity().inject(this);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
         configureTaskDescription();
@@ -76,10 +79,10 @@ public class NavigationActivity extends AppCompatActivity implements INavigation
         setSupportActionBar(mViews.toolbar);
 
         final FragmentManager supportFragmentManager = getSupportFragmentManager();
-        mNavigationFragmentManager = new NavigationFragmentManager(supportFragmentManager,
-                R.id.container,
-                mViews.drawerLayout,
-                mViews.navigationView);
+        mNavigationFragmentManager.setFragmentManager(supportFragmentManager);
+        mNavigationFragmentManager.setContainerId(R.id.container);
+        mNavigationFragmentManager.setDrawerLayout(mViews.drawerLayout);
+        mNavigationFragmentManager.setDrawer(mViews.navigationView);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, mViews.drawerLayout, mViews.toolbar,
