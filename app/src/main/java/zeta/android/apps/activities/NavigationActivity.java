@@ -26,11 +26,9 @@ import zeta.android.apps.activities.managers.NavigationFragmentManager;
 import zeta.android.apps.developer.debug.DebugFragment;
 import zeta.android.apps.views.common.BaseViews;
 
-public class NavigationActivity extends BaseNavigationActivity {
+public class NavigationActivity extends BaseNavigationActivity<NavigationActivity.Views> {
 
-    private Views mViews;
-
-    static class Views extends BaseViews {
+     static class Views extends BaseViews {
 
         @BindView(R.id.zeta_drawer_layout)
         DrawerLayout drawerLayout;
@@ -69,13 +67,17 @@ public class NavigationActivity extends BaseNavigationActivity {
     }
 
     @Override
+    protected Views onCreateViewHolder(View view) {
+        return new Views(this);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
         configureTaskDescription();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
 
-        mViews = new Views(this);
         setSupportActionBar(mViews.toolbar);
 
         final FragmentManager supportFragmentManager = getSupportFragmentManager();
