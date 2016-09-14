@@ -4,7 +4,7 @@ ext.versions = [
         targetSdk                         : 23,
         buildTools                        : "24.0.2",
 
-        supportLibVersion                 : "24.1.1",
+        supportLibVersion                 : "24.2.0",
         playServicesVersion               : "9.4.0",
         dexmakerVersion                   : "1.2",
         multiDexVersion                   : "1.0.1",
