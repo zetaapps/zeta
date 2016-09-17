@@ -8,6 +8,7 @@ import javax.inject.Inject;
 
 import dagger.Lazy;
 import rx.plugins.RxJavaHooks;
+import zeta.android.apps.di.component.DaggerZetaAppComponent;
 import zeta.android.apps.di.component.ZetaAppComponent;
 import zeta.android.apps.di.module.ZetaAppModule;
 import zeta.android.apps.rx.handlers.NetworkConnectivityErrorHandler;
