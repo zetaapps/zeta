@@ -1,4 +1,4 @@
-package zeta.android.apps.developer.tools;
+package zeta.android.apps.tools;
 
 import android.content.Context;
 import android.os.StrictMode;

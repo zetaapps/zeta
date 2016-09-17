@@ -9,7 +9,7 @@ import rx.functions.Action0;
 import rx.functions.Action1;
 import rx.functions.Actions;
 import rx.subscriptions.CompositeSubscription;
-import zeta.android.apps.rx.interfaces.RxSchedulerProvider;
+import zeta.android.apps.rx.providers.RxSchedulerProvider;
 
 @ParametersAreNonnullByDefault
 public class RxSubscriptionManager {

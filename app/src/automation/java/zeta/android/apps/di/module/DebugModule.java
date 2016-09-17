@@ -1,8 +1,6 @@
-package zeta.android.apps.modules;
+package zeta.android.apps.di.module;
 
 import android.content.Context;
-
-import com.github.pedrovgs.lynx.LynxConfig;
 
 import javax.inject.Singleton;
 
@@ -24,10 +22,5 @@ public class DebugModule {
     @Provides
     DebugSharedPreferences providesDebugSharedPreferences(Context context) {
         return new DebugSharedPreferences(context);
-    }
-
-    @Provides
-    public LynxConfig provideLynxConfig() {
-        return new LynxConfig();
     }
 }

@@ -4,6 +4,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import zeta.android.apps.ZetaApplication;
 
+/**
+ * Initializer for developer tools which are useful in local builds, but implementers may decide to skip
+ * based on the build type.  May also be used to provide a no-op initializer for production builds.
+ */
 @ParametersAreNonnullByDefault
 public interface DeveloperTools {
 

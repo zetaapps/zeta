@@ -4,7 +4,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import zeta.android.apps.ZetaApplication;
 import zeta.android.apps.sharedPref.DebugSharedPreferences;
-import zeta.android.apps.tools.DeveloperTools;
 
 @ParametersAreNonnullByDefault
 public class DeveloperToolsImpl implements DeveloperTools {

@@ -8,8 +8,9 @@ import javax.inject.Inject;
 
 import dagger.Lazy;
 import rx.plugins.RxJavaHooks;
-import zeta.android.apps.modules.ZetaAppModule;
-import zeta.android.apps.rx.handlers.RxErrorHandler;
+import zeta.android.apps.di.component.ZetaAppComponent;
+import zeta.android.apps.di.module.ZetaAppModule;
+import zeta.android.apps.rx.handlers.NetworkConnectivityErrorHandler;
 import zeta.android.apps.tools.DeveloperTools;
 
 @ParametersAreNonnullByDefault
@@ -36,7 +37,7 @@ public class ZetaApplication extends MultiDexApplication {
         mDeveloperTools.get().initialize(this);
 
         //Just to log the Rx Global errors.
-        RxJavaHooks.setOnError(new RxErrorHandler());
+        RxJavaHooks.setOnError(new NetworkConnectivityErrorHandler());
     }
 
     @Override
