@@ -41,10 +41,10 @@ ext.versions = [
         timberVersion                     : "4.1.2",
         leakcanaryVersion                 : "1.4-beta2",
 
-        zetaUtilsVersion                  : "0.1",
-        zetaEitherVersion                 : "0.2",
-        zetaListItemDividerVersion        : "0.1",
-        zetaHeaderAndFooterAdaptersVersion: "0.1",
+        zetaUtilsVersion                  : "0.2",
+        zetaEitherVersion                 : "0.3",
+        zetaListItemDividerVersion        : "0.2",
+        zetaHeaderAndFooterAdaptersVersion: "0.2",
 
         junitVersion                      : '4.12',
         robolectricVersion                : '3.0',
