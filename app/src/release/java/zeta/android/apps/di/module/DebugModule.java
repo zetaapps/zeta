@@ -1,4 +1,4 @@
-package zeta.andriod.apps.di.module;
+package zeta.android.apps.di.module;
 
 import android.content.Context;
 
@@ -6,8 +6,8 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import zeta.andriod.apps.sharedPref.DebugSharedPreferences;
-import zeta.andriod.apps.tools.DeveloperToolsImpl;
+import zeta.android.apps.sharedPref.DebugSharedPreferences;
+import zeta.android.apps.tools.DeveloperToolsImpl;
 import zeta.android.apps.tools.DeveloperTools;
 
 @Module

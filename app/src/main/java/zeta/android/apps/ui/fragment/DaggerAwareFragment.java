@@ -6,8 +6,8 @@ import android.support.v4.app.Fragment;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import zeta.android.apps.di.component.ZetaAppComponent;
 import zeta.android.apps.ZetaApplication;
+import zeta.android.apps.di.component.ZetaAppComponent;
 
 @ParametersAreNonnullByDefault
 public abstract class DaggerAwareFragment extends Fragment {

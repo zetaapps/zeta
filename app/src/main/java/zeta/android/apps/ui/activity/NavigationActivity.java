@@ -18,13 +18,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import butterknife.BindView;
-import zeta.andriod.apps.ui.fragment.DebugFragment;
+import zeta.android.apps.ui.fragment.DebugFragment;
 import zeta.android.apps.BuildConfig;
 import zeta.android.apps.R;
-import zeta.android.apps.di.component.ZetaAppComponent;
 import zeta.android.apps.ZetaApplication;
+import zeta.android.apps.di.component.ZetaAppComponent;
 import zeta.android.apps.ui.activity.navigation.NavigationFragmentManager;
 import zeta.android.apps.ui.common.BaseViews;
+
 
 public class NavigationActivity extends BaseNavigationActivity {
 

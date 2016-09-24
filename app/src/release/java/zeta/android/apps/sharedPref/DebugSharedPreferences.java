@@ -1,4 +1,4 @@
-package zeta.andriod.apps.sharedPref;
+package zeta.android.apps.sharedPref;
 
 import android.content.Context;
 

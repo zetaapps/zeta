@@ -1,8 +1,8 @@
-package zeta.andriod.apps.di.module;
+package zeta.android.apps.di.module;
 
 import dagger.Module;
 import dagger.Provides;
-import zeta.andriod.apps.presenter.DebugPresenter;
+import zeta.android.apps.presenter.DebugPresenter;
 import zeta.android.apps.di.scope.FragmentScope;
 import zeta.android.apps.rx.providers.RxSchedulerProvider;
 

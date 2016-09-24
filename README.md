@@ -9,7 +9,7 @@
 [![CircleCI](https://circleci.com/gh/zetaapps/zeta.svg?style=svg)](https://circleci.com/gh/zetaapps/zeta)
 [![codecov](https://codecov.io/gh/zetaapps/zeta/branch/master/graph/badge.svg)](https://codecov.io/gh/zetaapps/zeta)
 
-<a href="https://play.google.com/store/apps/details?id=zeta.andriod.apps.free">
+<a href="https://play.google.com/store/apps/details?id=zeta.android.apps.free">
 <img align="middle" alt="Get it on Google Play" src="https://cloud.githubusercontent.com/assets/1502341/17841713/0670bc32-67e1-11e6-907e-2f850d755b8f.png" />
 </a>
 
@@ -145,7 +145,7 @@ Project Zeta comes with three different build variants plus with two different f
 
 Actually we don't. This is just to show case that we still can many flavor of builds with these settings. So out of the box we have ability to check against the build flavor and show or hide features.
 
-All these build can coexist in the same devices as these builds comes with it's own build variant package suffix like `zeta.andriod.apps.automation.free` `zeta.andriod.apps.automation.paid` `zeta.andriod.apps.debug.free` & `zeta.andriod.apps.debug.paid` - Woahzzza! That's sweet. Isn't it.
+All these build can coexist in the same devices as these builds comes with it's own build variant package suffix like `zeta.android.apps.automation.free` `zeta.android.apps.automation.paid` `zeta.android.apps.debug.free` & `zeta.android.apps.debug.paid` - Woahzzza! That's sweet. Isn't it.
 
 # ![Zeta](https://cloud.githubusercontent.com/assets/1502341/17843715/dab97154-67f6-11e6-9ad4-c39fded761d4.png "Zeta Apps Versions")
 

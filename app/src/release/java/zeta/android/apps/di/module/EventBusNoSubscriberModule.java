@@ -1,4 +1,4 @@
-package zeta.andriod.apps.di.module;
+package zeta.android.apps.di.module;
 
 import javax.inject.Singleton;
 

@@ -5,8 +5,8 @@ import android.support.annotation.CallSuper;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import zeta.android.apps.di.component.ZetaAppComponent;
 import zeta.android.apps.ZetaApplication;
+import zeta.android.apps.di.component.ZetaAppComponent;
 
 public abstract class DaggerAwareActivity extends AppCompatActivity {
 

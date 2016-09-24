@@ -11,9 +11,9 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import okhttp3.logging.HttpLoggingInterceptor;
 import zeta.android.apps.R;
-import zeta.android.apps.ui.inteface.DebugPresentation;
 import zeta.android.apps.rx.providers.RxSchedulerProvider;
 import zeta.android.apps.sharedPref.DebugSharedPreferences;
+import zeta.android.apps.ui.inteface.DebugPresentation;
 
 @ParametersAreNonnullByDefault
 public class DebugPresenter extends ZetaRxFragmentLifeCyclePresenter<DebugPresentation> {

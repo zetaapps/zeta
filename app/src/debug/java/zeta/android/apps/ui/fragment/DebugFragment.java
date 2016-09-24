@@ -28,8 +28,8 @@ import butterknife.BindView;
 import zeta.android.apps.R;
 import zeta.android.apps.di.component.ZetaAppComponent;
 import zeta.android.apps.presenter.DebugPresenter;
-import zeta.android.apps.ui.inteface.DebugPresentation;
 import zeta.android.apps.ui.common.BaseViews;
+import zeta.android.apps.ui.inteface.DebugPresentation;
 
 @ParametersAreNonnullByDefault
 public class DebugFragment extends BaseNavigationFragment implements DebugPresentation {

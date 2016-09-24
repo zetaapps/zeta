@@ -1,8 +1,8 @@
-package zeta.andriod.apps.di.component;
+package zeta.android.apps.di.component;
 
 import dagger.Subcomponent;
-import zeta.andriod.apps.di.module.DebugPresenterModule;
-import zeta.andriod.apps.ui.fragment.DebugFragment;
+import zeta.android.apps.di.module.DebugPresenterModule;
+import zeta.android.apps.ui.fragment.DebugFragment;
 import zeta.android.apps.di.scope.FragmentScope;
 
 @FragmentScope

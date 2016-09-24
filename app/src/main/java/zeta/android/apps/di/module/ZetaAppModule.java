@@ -13,8 +13,8 @@ import zeta.android.apps.providers.DefaultStringResourceProvider;
 import zeta.android.apps.providers.interfaces.ConnectivityProvider;
 import zeta.android.apps.providers.interfaces.SharedPrefProvider;
 import zeta.android.apps.providers.interfaces.StringResourceProvider;
-import zeta.android.apps.rx.providers.RxSchedulerProvider;
 import zeta.android.apps.rx.managers.RxSubscriptionManager;
+import zeta.android.apps.rx.providers.RxSchedulerProvider;
 import zeta.android.apps.rx.providers.SchedulerProvider;
 
 @Module

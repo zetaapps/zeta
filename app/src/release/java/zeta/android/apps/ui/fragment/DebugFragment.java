@@ -1,4 +1,4 @@
-package zeta.andriod.apps.ui.fragment;
+package zeta.android.apps.ui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,12 +9,11 @@ import android.view.ViewGroup;
 import javax.annotation.ParametersAreNonnullByDefault;
 import javax.inject.Inject;
 
-import zeta.andriod.apps.ui.presentation.DebugPresentation;
+import zeta.android.apps.presenter.DebugPresenter;
+import zeta.android.apps.ui.presentation.DebugPresentation;
 import zeta.android.apps.R;
-import zeta.andriod.apps.presenter.DebugPresenter;
 import zeta.android.apps.di.component.ZetaAppComponent;
 import zeta.android.apps.ui.common.BaseViews;
-import zeta.android.apps.ui.fragment.BaseNavigationFragment;
 
 @ParametersAreNonnullByDefault
 public class DebugFragment extends BaseNavigationFragment implements DebugPresentation {
