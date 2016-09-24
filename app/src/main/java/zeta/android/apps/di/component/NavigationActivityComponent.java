@@ -1,7 +1,7 @@
 package zeta.android.apps.di.component;
 
 import dagger.Subcomponent;
-import zeta.android.apps.view.activity.NavigationActivity;
+import zeta.android.apps.ui.activity.NavigationActivity;
 import zeta.android.apps.di.module.ActivityModule;
 import zeta.android.apps.di.scope.ActivityScope;
 

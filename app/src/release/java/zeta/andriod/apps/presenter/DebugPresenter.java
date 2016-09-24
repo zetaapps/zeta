@@ -1,11 +1,12 @@
-package zeta.android.apps.presenter;
+package zeta.andriod.apps.presenter;
 
 import android.view.Menu;
 import android.view.MenuInflater;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import zeta.android.apps.ui.fragment.DebugPresentation;
+import zeta.andriod.apps.ui.presentation.DebugPresentation;
+import zeta.android.apps.presenter.ZetaRxFragmentLifeCyclePresenter;
 import zeta.android.apps.rx.providers.RxSchedulerProvider;
 
 @ParametersAreNonnullByDefault
