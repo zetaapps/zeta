@@ -1,7 +1,7 @@
 package zeta.android.apps;
 
+import android.app.Application;
 import android.content.Context;
-import android.support.multidex.MultiDexApplication;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import javax.inject.Inject;
@@ -15,7 +15,7 @@ import zeta.android.apps.rx.handlers.NetworkConnectivityErrorHandler;
 import zeta.android.apps.tools.DeveloperTools;
 
 @ParametersAreNonnullByDefault
-public class ZetaApplication extends MultiDexApplication {
+public class ZetaApplication extends Application {
 
     @Inject
     public Lazy<DeveloperTools> mDeveloperTools;
