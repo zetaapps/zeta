@@ -13,7 +13,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "zeta.andriod.apps"
+        applicationId "zeta.android.apps"
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
         versionCode 3

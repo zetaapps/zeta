@@ -10,8 +10,9 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import okhttp3.logging.HttpLoggingInterceptor;
-import zeta.android.apps.developer.debug.presentation.DebugPresentation;
-import zeta.android.apps.rx.providers.UnitTestSchedulerProvider;
+import zeta.android.apps.rx.providers.TestSchedulerProvider;
+import zeta.android.apps.ui.inteface.DebugPresentation;
+import zeta.android.apps.presenter.DebugPresenter;
 import zeta.android.apps.sharedPref.DebugSharedPreferences;
 
 import static org.mockito.Matchers.eq;
@@ -38,7 +39,7 @@ public class DebugPresenterTest {
     @Before
     public void setUp() throws Exception {
         //Unit test scheduler for testing purposes.
-        final UnitTestSchedulerProvider unitTestSchedulerProvider = new UnitTestSchedulerProvider();
+        final TestSchedulerProvider unitTestSchedulerProvider = new TestSchedulerProvider();
         mPresenter = new DebugPresenter(unitTestSchedulerProvider, mMockDebugSharedPreferences, mMockLynxConfig);
         mPresenter.onCreateView(mPresentation);
     }

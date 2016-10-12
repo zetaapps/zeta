@@ -6,8 +6,13 @@ import com.github.zetaapps.either.Either;
 
 import rx.Subscriber;
 import timber.log.Timber;
-import zeta.android.apps.network.ZetaNoNetworkConnectivityException;
+import zeta.android.apps.network.exception.ZetaNoNetworkConnectivityException;
 
+/**
+ * A special {@link Subscriber} made for network calls.  In addition to explicit types for success and failure
+ * conditions, the {@link #onNoNetworkFailure()} method makes a clear distinction for failures that result
+ * from connectivity problems.
+ */
 public abstract class ZetaSubscriber<S, F> extends Subscriber<Either<S, F>> {
 
     protected abstract void onSuccess(S success);
