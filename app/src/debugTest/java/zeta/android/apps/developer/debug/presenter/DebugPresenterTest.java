@@ -11,7 +11,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import okhttp3.logging.HttpLoggingInterceptor;
 import zeta.android.apps.rx.providers.TestSchedulerProvider;
-import zeta.android.apps.ui.inteface.DebugPresentation;
+import zeta.android.apps.ui.presentation.DebugPresentation;
 import zeta.android.apps.presenter.DebugPresenter;
 import zeta.android.apps.sharedPref.DebugSharedPreferences;
 
@@ -25,7 +25,7 @@ import static org.mockito.Mockito.when;
 public class DebugPresenterTest {
 
     //Object under test.
-    DebugPresenter mPresenter;
+    private DebugPresenter mPresenter;
 
     @Mock
     DebugPresentation mPresentation;
