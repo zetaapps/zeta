@@ -24,7 +24,7 @@ ext.versions = [
 
         daggerVersion                     : "2.5",
         retrofitVersion                   : "2.0.2",
-        rxJavaVersion                     : "1.1.7",
+        rxJavaVersion                     : "1.2.1",
         rxAndroidVersion                  : "1.2.1",
 
         gsonVersion                       : "2.7",
