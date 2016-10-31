@@ -2,6 +2,7 @@ package zeta.android.apps.ui.activity;
 
 import android.app.ActivityManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
@@ -17,19 +18,25 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
-import zeta.android.apps.ui.fragment.DebugFragment;
-import zeta.android.apps.BuildConfig;
 import zeta.android.apps.R;
 import zeta.android.apps.ZetaApplication;
 import zeta.android.apps.di.component.ZetaAppComponent;
+import zeta.android.apps.presenter.NavigationPresenter;
 import zeta.android.apps.ui.activity.navigation.NavigationFragmentManager;
 import zeta.android.apps.ui.common.BaseViews;
+import zeta.android.apps.ui.fragment.DebugFragment;
+import zeta.android.apps.ui.presentation.NavigationPresentation;
 
 
-public class NavigationActivity extends BaseNavigationActivity {
+public class NavigationActivity extends BaseNavigationActivity implements NavigationPresentation {
 
     private Views mViews;
+
+    @Inject
+    NavigationPresenter mPresenter;
 
     static class Views extends BaseViews {
 
@@ -92,8 +99,8 @@ public class NavigationActivity extends BaseNavigationActivity {
         mViews.drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        final Menu menu = mViews.navigationView.getMenu();
-        menu.findItem(R.id.nav_debug).setVisible(BuildConfig.DEBUG);
+        mPresenter.onCreate(this);
+
         mViews.navigationView.setNavigationItemSelectedListener(this);
 
         if (savedInstanceState == null) {
@@ -102,9 +109,23 @@ public class NavigationActivity extends BaseNavigationActivity {
     }
 
     @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        mPresenter.onPostResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mPresenter.onPause();
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         ZetaApplication.watchForMemoryLeaks(getApplicationContext(), this);
+        mPresenter.onDestroy();
+        mPresenter = null;
         mViews.clear();
         mViews = null;
     }
@@ -131,10 +152,10 @@ public class NavigationActivity extends BaseNavigationActivity {
     }
 
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_home:
-                mNavigationFragmentManager.clearToBaseFragment();
+                mPresenter.onMenuItemHomeSelected();
                 break;
             case R.id.nav_score:
                 break;
@@ -143,7 +164,7 @@ public class NavigationActivity extends BaseNavigationActivity {
             case R.id.nav_settings:
                 break;
             case R.id.nav_debug:
-                mNavigationFragmentManager.addFragmentToBackStack(DebugFragment.newInstance());
+                mPresenter.onMenuItemDebugSelected();
                 break;
         }
         mViews.drawerLayout.closeDrawer(GravityCompat.START);
@@ -171,6 +192,26 @@ public class NavigationActivity extends BaseNavigationActivity {
             setTaskDescription(taskDescription);
         }
     }
+    //endregion
+
+    //region NavigationPresentation
+
+    @Override
+    public void showDebugMenuItem(boolean show) {
+        final Menu menu = mViews.navigationView.getMenu();
+        menu.findItem(R.id.nav_debug).setVisible(show);
+    }
+
+    @Override
+    public void showBaseScreen() {
+        mNavigationFragmentManager.clearToBaseFragment();
+    }
+
+    @Override
+    public void showDebugScreen() {
+        mNavigationFragmentManager.addFragmentToBackStack(DebugFragment.newInstance());
+    }
+
     //endregion
 
 }
