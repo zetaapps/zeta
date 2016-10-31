@@ -56,7 +56,6 @@ ext.versions = [
         espressoVersion                   : '2.2.1',
 
         gradlePluginVersion               : "2.2.2",
-        aptToolsPluginVersion             : "1.8",
         retroLambdaPluginVersion          : "3.2.5",
         retrolombokPluginVersion          : "0.2.3.a2",
         frodoPluginVersion                : "0.8.3"
@@ -67,7 +66,6 @@ ext.gradlePlugins = [
         retroLambdaPlugin : "me.tatarka:gradle-retrolambda:$versions.retroLambdaPluginVersion",
         frodoPlugin       : "com.fernandocejas.frodo:frodo-plugin:$versions.frodoPluginVersion",
         butterKnifePlugin : "com.jakewharton:butterknife-gradle-plugin:$versions.butterKnifeVersion",
-        aptPlugin         : "com.neenbedankt.gradle.plugins:android-apt:$versions.aptToolsPluginVersion",
         lombokPlugin      : "me.tatarka.retrolambda.projectlombok:lombok.ast:$versions.retrolombokPluginVersion"
 ]
 
