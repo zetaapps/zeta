@@ -1,7 +1,6 @@
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.android.application'
 apply plugin: 'com.fernandocejas.frodo'
-apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'com.jakewharton.butterknife'
 
 android {
@@ -135,7 +134,7 @@ dependencies {
 
     compile libraries.eventBus
     compile libraries.butterKnife
-    apt libraries.butterKnifeCompiler
+    annotationProcessor libraries.butterKnifeCompiler
 
     //IMAGE PROCESSING
     compile libraries.glide
@@ -162,9 +161,9 @@ dependencies {
     compile libraries.rxJava
     compile libraries.rxAndroid
     compile libraries.dagger
-    apt libraries.daggerCompiler
+    annotationProcessor libraries.daggerCompiler
     provided libraries.autoValue
-    apt libraries.autoValueParcel
+    annotationProcessor libraries.autoValueParcel
 
     //Zeta
     compile libraries.zetaUtils

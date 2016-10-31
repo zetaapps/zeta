@@ -1,4 +1,4 @@
-package zeta.android.apps.ui.inteface;
+package zeta.android.apps.ui.presentation;
 
 import android.support.annotation.StringRes;
 
