@@ -2,10 +2,10 @@ ext.versions = [
         compileSdk                        : 24,
         minSdk                            : 16,
         targetSdk                         : 23,
-        buildTools                        : "24.0.3",
+        buildTools                        : "25.0.1",
 
-        supportLibVersion                 : "24.2.1",
-        playServicesVersion               : "9.4.0",
+        supportLibVersion                 : "25.1.0",
+        playServicesVersion               : "10.0.1",
         dexmakerVersion                   : "1.2",
         multiDexVersion                   : "1.0.1",
 
@@ -22,12 +22,14 @@ ext.versions = [
         autoValue                         : "1.2",
         autoValueParcel                   : "0.2.2",
 
-        daggerVersion                     : "2.5",
-        retrofitVersion                   : "2.0.2",
+        daggerVersion                     : "2.8",
+        retrofitVersion                   : "2.1.0",
         rxJavaVersion                     : "1.2.1",
         rxAndroidVersion                  : "1.2.1",
 
         gsonVersion                       : "2.7",
+        cookiesJarVersion                 : "v1.0.0",
+        networkSamplerVersion             : "connectionclass:1.0.1",
 
         okIoVersion                       : "1.9.0",
         okHttp3Version                    : "3.4.1",
@@ -37,7 +39,7 @@ ext.versions = [
 
         lynxVersion                       : '1.6',
         stethoVersion                     : '1.3.1',
-        tinyDancerVersion                 : '0.0.8',
+        tinyDancerVersion                 : '0.1.0',
         timberVersion                     : "4.1.2",
         leakcanaryVersion                 : "1.4-beta2",
 
@@ -50,7 +52,7 @@ ext.versions = [
         robolectricVersion                : '3.0',
         assertJVersion                    : '1.7.1',
         equalsVerifierVersion             : '1.7.5',
-        mockitoVersion                    : '1.10.19',
+        mockitoVersion                    : 'mockito-core:1.10.19',
         supportTestRunnerVersion          : '0.4.1',
         supportTestVersion                : "0.4.1",
         espressoVersion                   : '2.2.1',
@@ -62,6 +64,7 @@ ext.versions = [
 ]
 
 ext.gradlePlugins = [
+        aptPlugin         : "com.neenbedankt.gradle.plugins:android-apt:1.8",
         androidToolsPlugin: "com.android.tools.build:gradle:$versions.gradlePluginVersion",
         retroLambdaPlugin : "me.tatarka:gradle-retrolambda:$versions.retroLambdaPluginVersion",
         frodoPlugin       : "com.fernandocejas.frodo:frodo-plugin:$versions.frodoPluginVersion",
@@ -88,7 +91,10 @@ ext.libraries = [
         playServicesMaps           : "com.google.android.gms:play-services-maps:$versions.playServicesVersion",
         playServicesPlaces         : "com.google.android.gms:play-services-places:$versions.playServicesVersion",
         playServicesLocation       : "com.google.android.gms:play-services-location:$versions.playServicesVersion",
-        appIndexing                : "com.google.android.gms:play-services-appindexing:$versions.playServicesVersion",
+        //endregion
+
+        //region firebase
+        appIndexing                : "com.google.firebase:firebase-appindexing:$versions.playServicesVersion",
         //endregion
 
         //region IMAGE PROCESSOR
@@ -114,6 +120,9 @@ ext.libraries = [
         rxAndroid                  : "io.reactivex:rxandroid:$versions.rxAndroidVersion",
 
         gson                       : "com.google.code.gson:gson:$versions.gsonVersion",
+
+        networkSampler             : "com.facebook.network.connectionclass:$versions.networkSamplerVersion",
+        persistentCookieJar        : "com.github.franmontiel:PersistentCookieJar:$versions.cookiesJarVersion",
         //endregion
 
         //region UTILS
@@ -155,18 +164,19 @@ ext.libraries = [
         //endregion
 
         //region TESTING DEPENDENCIES
+        orgDotJson                 : "org.json:json:20140107",
         junit                      : "junit:junit:$versions.junitVersion",
         assertJ                    : "org.assertj:assertj-core:$versions.assertJVersion",
         robolectric                : "org.robolectric:robolectric:$versions.robolectricVersion",
         equalsVerifier             : "nl.jqno.equalsverifier:equalsverifier:$versions.equalsVerifierVersion",
 
-        mockitoCore                : "org.mockito:mockito-core:$versions.mockitoVersion",
+        mockitoCore                : "org.mockito:$versions.mockitoVersion",
         okHttpMockWebServer        : "com.squareup.okhttp3:mockwebserver:$versions.okHttp3Version",
         retrofitMock               : "com.squareup.retrofit2:retrofit-mock:$versions.retrofitVersion",
 
         supportTestRules           : "com.android.support.test:rules:$versions.supportTestRunnerVersion",
         supportTestRunner          : "com.android.support.test:runner:$versions.supportTestRunnerVersion",
-        
+
         dexmaker                   : "com.google.dexmaker:dexmaker:$versions.dexmakerVersion",
         dexmakerMockito            : "com.google.dexmaker:dexmaker-mockito:$versions.dexmakerVersion",
 
