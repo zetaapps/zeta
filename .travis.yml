@@ -17,14 +17,14 @@ android:
   components:
     - platform-tools
     - tools
-    - android-24
-    - build-tools-25.0.1
+    - android-25
+    - build-tools-25.0.2
     - extra-android-support
     - extra-android-m2repository
     - extra-google-google_play_services
     - extra-android-m2repository
     - extra-google-m2repository
-    - sys-img-armeabi-v7a-android-24
+    - sys-img-armeabi-v7a-android-25
   licenses:
      - '.+'
 
@@ -32,7 +32,7 @@ before_install:
   - pip install --user codecov
 
 before_script:
-  - echo no | android create avd --force -n test -t android-24 --abi armeabi-v7a
+  - echo no | android create avd --force -n test -t android-25 --abi armeabi-v7a
   - emulator -avd test -no-skin -no-audio -no-window &
   - android-wait-for-emulator
   - adb shell input keyevent 82

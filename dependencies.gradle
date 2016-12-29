@@ -1,8 +1,8 @@
 ext.versions = [
-        compileSdk                        : 24,
+        compileSdk                        : 25,
         minSdk                            : 16,
         targetSdk                         : 23,
-        buildTools                        : "25.0.1",
+        buildTools                        : "25.0.2",
 
         supportLibVersion                 : "25.1.0",
         playServicesVersion               : "10.0.1",
@@ -164,7 +164,7 @@ ext.libraries = [
         //endregion
 
         //region TESTING DEPENDENCIES
-        orgDotJson                 : "org.json:json:20140107",
+        orgDotJson                 : "org.json:json:20160810",
         junit                      : "junit:junit:$versions.junitVersion",
         assertJ                    : "org.assertj:assertj-core:$versions.assertJVersion",
         robolectric                : "org.robolectric:robolectric:$versions.robolectricVersion",
