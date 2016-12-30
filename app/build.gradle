@@ -17,7 +17,16 @@ android {
         targetSdkVersion versions.targetSdk
         versionCode 3
         versionName "1.0.3"
-        multiDexEnabled true
+        multiDexEnabled false
+    }
+
+    splits {
+        abi {
+            enable false
+            reset()
+            include 'x86', 'armeabi-v7a', 'mips'
+            universalApk false
+        }
     }
 
     buildTypes {
@@ -37,7 +46,8 @@ android {
         }
 
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -60,6 +70,10 @@ android {
     aaptOptions {
         //Note: If you did not apply PNG optimization on your own, you may want this to be true
         cruncherEnabled = false
+    }
+
+    dataBinding {
+        enabled = true
     }
 
     testBuildType "automation"
@@ -211,4 +225,34 @@ configurations.all {
 retrolambda {
     jvmArgs '-noverify'
 }
+
+// Map for the version code that gives each ABI a value.
+ext.abiCodes = ['armeabi-v7a': 1, mips: 2, x86: 3]
+
+import com.android.build.OutputFile
+
+// For each APK output variant, override versionCode with a combination of
+// ext.abiCodes * 1000 + variant.versionCode. In this example, variant.versionCode
+// is equal to defaultConfig.versionCode. If you configure product flavors that
+// define their own versionCode, variant.versionCode uses that value instead.
+android.applicationVariants.all { variant ->
+    // Assigns a different version code for each output APK
+    // other than the universal APK.
+    variant.outputs.each { output ->
+        def baseAbiVersionCode = project.ext.abiCodes.get(output.getFilter(OutputFile.ABI))
+        // Because abiCodes.get() returns null for ABIs that are not mapped by ext.abiCodes,
+        // the following code does not override the version code for universal APKs.
+        // However, because we want universal APKs to have the lowest version code,
+        // this outcome is desirable.
+        if (baseAbiVersionCode != null) {
+            // Assigns the new version code to versionCodeOverride, which changes the version code
+            // for only the output APK, not for the variant itself. Skipping this step simply
+            // causes Gradle to use the value of variant.versionCode for the APK.
+            output.versionCodeOverride =
+                    baseAbiVersionCode * 1000 + variant.versionCode
+        }
+    }
+}
+
+
 

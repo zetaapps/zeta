@@ -8,12 +8,6 @@
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
 # Add any project specific keep options here:
-
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-#class:
--keepclassmembers class fqcn.of.javascript.interface.for.webview {   public *;}
-
 -keepclassmembers class * implements java.io.Serializable {
     static final long serialVersionUID;
     private static final java.io.ObjectStreamField[] serialPersistentFields;
@@ -48,8 +42,8 @@
 
 # TODO: Add the following if encountering other support-library issues
 #
-#-keep class android.support.v7.widget.** { *; }
-#-keep interface android.support.v7.widget.** { *; }
+-keep class android.support.v7.widget.** { *; }
+-keep interface android.support.v7.widget.** { *; }
 
 # We want to keep methods in Activity that could be used in the XML attribute onClick
 -keepclassmembers class * extends android.app.Activity {
@@ -76,11 +70,12 @@
 -dontwarn android.support.**
 -dontwarn org.fest.**
 -dontwarn sun.misc.Unsafe
+-dontnote libcore.icu.ICU
 ### end standard android exclusions
 
 ### settings for google play services, see: http://developer.android.com/google/play-services/setup.html
 -keep class * extends java.util.ListResourceBundle {
-    protected Object[][] getContents();
+    protected java.lang.Object[][] getContents();
 }
 
 -keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
@@ -132,10 +127,11 @@
 
 # okhttp settings
 -dontwarn com.squareup.okhttp.**
+-dontwarn okio.**
+-dontnote okhttp3.**, okio.**, retrofit2.**, pl.droidsonroids.**
 
 # Prettytime settings
 -keep class org.ocpsoft.prettytime.i18n.**
--keepnames class ** implements org.ocpsoft.prettytime.TimeUnit
 
 # ORMLite settings
 # OrmLite uses reflection
@@ -169,7 +165,7 @@
     **[] $VALUES;
     public *;
 }
--keepnames class com.target.ui.appconfig.GlideConfigModule
+-keepnames class zeta.android.apps.appconfig.GlideConfigModule
 
 #Retrofit 2.0
 -dontwarn retrofit2.**
@@ -181,6 +177,7 @@
 -dontwarn com.squareup.haha.guava.collect.**
 -dontwarn com.squareup.haha.perflib.io.**
 -dontwarn com.squareup.haha.trove.THashMap**
+-dontwarn fi.foyt.foursquare.**
 
 #Retrolambda
 -dontwarn java.lang.invoke.*
@@ -197,4 +194,9 @@
 
 #Mockito
 -dontwarn org.mockito.**
+
+#Just to ignore the notes
+-dontnote android.net.http.*
+-dontnote org.apache.commons.codec.**
+-dontnote org.apache.http.**
 

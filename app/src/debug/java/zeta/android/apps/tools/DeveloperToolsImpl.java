@@ -43,6 +43,11 @@ public class DeveloperToolsImpl implements DeveloperTools {
         }
 
         if (mDebugSharedPreferences.getLeakyCanaryEnabled()) {
+            if (LeakCanary.isInAnalyzerProcess(context)) {
+                // This process is dedicated to LeakCanary for heap analysis.
+                // You should not init your app in this process.
+                return;
+            }
             mRefWatcherInstance = LeakCanary.install(application);
         }
 

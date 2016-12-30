@@ -16,8 +16,7 @@
         android:label="@string/app_name"
         android:largeHeap="@bool/use_large_heap"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.Launcher"
-        tools:replace="allowBackup">
+        android:theme="@style/AppTheme.Launcher">
 
         <activity
             android:name="zeta.android.apps.ui.activity.NavigationActivity"
