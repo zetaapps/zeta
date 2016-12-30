@@ -52,7 +52,7 @@ ext.versions = [
         robolectricVersion                : '3.0',
         assertJVersion                    : '1.7.1',
         equalsVerifierVersion             : '1.7.5',
-        mockitoVersion                    : 'mockito-core:1.10.19',
+        mockitoVersion                    : '1.10.19',
         supportTestRunnerVersion          : '0.4.1',
         supportTestVersion                : "0.4.1",
         espressoVersion                   : '2.2.1',
@@ -64,7 +64,6 @@ ext.versions = [
 ]
 
 ext.gradlePlugins = [
-        aptPlugin         : "com.neenbedankt.gradle.plugins:android-apt:1.8",
         androidToolsPlugin: "com.android.tools.build:gradle:$versions.gradlePluginVersion",
         retroLambdaPlugin : "me.tatarka:gradle-retrolambda:$versions.retroLambdaPluginVersion",
         frodoPlugin       : "com.fernandocejas.frodo:frodo-plugin:$versions.frodoPluginVersion",
@@ -170,7 +169,7 @@ ext.libraries = [
         robolectric                : "org.robolectric:robolectric:$versions.robolectricVersion",
         equalsVerifier             : "nl.jqno.equalsverifier:equalsverifier:$versions.equalsVerifierVersion",
 
-        mockitoCore                : "org.mockito:$versions.mockitoVersion",
+        mockitoCore                : "org.mockito:mockito-core:$versions.mockitoVersion",
         okHttpMockWebServer        : "com.squareup.okhttp3:mockwebserver:$versions.okHttp3Version",
         retrofitMock               : "com.squareup.retrofit2:retrofit-mock:$versions.retrofitVersion",
 

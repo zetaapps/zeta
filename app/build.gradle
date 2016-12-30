@@ -72,6 +72,10 @@ android {
         cruncherEnabled = false
     }
 
+    dataBinding {
+        enabled = true
+    }
+
     testBuildType "automation"
 
     lintOptions {
@@ -223,7 +227,7 @@ retrolambda {
 }
 
 // Map for the version code that gives each ABI a value.
-ext.abiCodes = ['armeabi-v7a': 1, 'armeabi': 2, mips: 3, x86: 4]
+ext.abiCodes = ['armeabi-v7a': 1, mips: 2, x86: 3]
 
 import com.android.build.OutputFile
 
