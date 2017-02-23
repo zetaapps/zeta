@@ -1,20 +1,20 @@
 ext.versions = [
-        compileSdk                        : 24,
+        compileSdk                        : 25,
         minSdk                            : 16,
-        targetSdk                         : 23,
-        buildTools                        : "24.0.3",
+        targetSdk                         : 25,
+        buildTools                        : "25.0.1",
 
-        supportLibVersion                 : "24.2.1",
-        playServicesVersion               : "9.4.0",
+        supportLibVersion                 : "25.2.0",
+        playServicesVersion               : "10.2.0",
         dexmakerVersion                   : "1.2",
         multiDexVersion                   : "1.0.1",
 
-        butterKnifeVersion                : "8.4.0",
+        butterKnifeVersion                : "8.5.1",
         bundlerVersion                    : "1.1.2",
         eventBusVersion                   : "3.0.0",
 
         javaxAnnotationApiVersion         : "1.2",
-        jsr305Version                     : "jsr305:2.0.1",
+        jsr305Version                     : "2.0.1",
 
         ormliteVersion                    : "4.48",
         prettyTimeVersion                 : "3.2.7.Final",
@@ -68,7 +68,6 @@ ext.gradlePlugins = [
         butterKnifePlugin : "com.jakewharton:butterknife-gradle-plugin:$versions.butterKnifeVersion",
         lombokPlugin      : "me.tatarka.retrolambda.projectlombok:lombok.ast:$versions.retrolombokPluginVersion"
 ]
-
 ext.libraries = [
 
         //region support libraries
@@ -88,7 +87,6 @@ ext.libraries = [
         playServicesMaps           : "com.google.android.gms:play-services-maps:$versions.playServicesVersion",
         playServicesPlaces         : "com.google.android.gms:play-services-places:$versions.playServicesVersion",
         playServicesLocation       : "com.google.android.gms:play-services-location:$versions.playServicesVersion",
-        appIndexing                : "com.google.android.gms:play-services-appindexing:$versions.playServicesVersion",
         //endregion
 
         //region IMAGE PROCESSOR
@@ -134,7 +132,7 @@ ext.libraries = [
         //endregion
 
         //region ANNOTATION
-        jsr305                     : "com.google.code.findbugs:$versions.jsr305Version",
+        jsr305                     : "com.google.code.findbugs:jsr305:$versions.jsr305Version",
         javaxAnnotationApi         : "javax.annotation:javax.annotation-api:$versions.javaxAnnotationApiVersion",
         //endregion
 
@@ -166,7 +164,7 @@ ext.libraries = [
 
         supportTestRules           : "com.android.support.test:rules:$versions.supportTestRunnerVersion",
         supportTestRunner          : "com.android.support.test:runner:$versions.supportTestRunnerVersion",
-        
+
         dexmaker                   : "com.google.dexmaker:dexmaker:$versions.dexmakerVersion",
         dexmakerMockito            : "com.google.dexmaker:dexmaker-mockito:$versions.dexmakerVersion",
 
@@ -174,3 +172,4 @@ ext.libraries = [
         espressoContrib            : "com.android.support.test.espresso:espresso-contrib:$versions.espressoVersion",
         //endregion
 ]
+

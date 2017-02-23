@@ -118,7 +118,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
     //PLAY SERVICES
-    compile libraries.appIndexing
     compile libraries.playServicesAd
     compile libraries.playServicesGcm
     compile libraries.playServicesMaps
