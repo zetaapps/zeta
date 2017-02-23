@@ -8,13 +8,14 @@ general:
 machine:
     environment:
         ANDROID_HOME: /usr/local/android-sdk-linux
-        GRADLE_OPTS: -Xmx512m
+        GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"'
+         _JAVA_OPTIONS: "-Xms512m -Xmx1024m"
     java:
         version: openjdk8
 
 dependencies:
     pre:
-      - echo y | android update sdk --no-ui --all --filter "tools,android-24,build-tools-24.0.3,platform-tools,extra-android-m2repository,extra-google-m2repository,extra-google-google_play_services"
+      - echo y | android update sdk --no-ui --all --filter "tools,android-25,build-tools-25.0.2,platform-tools,extra-android-m2repository,extra-google-m2repository,extra-google-google_play_services"
 
 #-PdisablePreDex is a must else gradle just dies due to memory limit
 test:
