@@ -2,7 +2,7 @@ ext.versions = [
         compileSdk                        : 25,
         minSdk                            : 16,
         targetSdk                         : 25,
-        buildTools                        : "25.0.1",
+        buildTools                        : "25.0.2",
 
         supportLibVersion                 : "25.2.0",
         playServicesVersion               : "10.2.0",
@@ -22,15 +22,15 @@ ext.versions = [
         autoValue                         : "1.2",
         autoValueParcel                   : "0.2.2",
 
-        daggerVersion                     : "2.5",
-        retrofitVersion                   : "2.0.2",
-        rxJavaVersion                     : "1.2.1",
+        daggerVersion                     : "2.10-rc2",
+        retrofitVersion                   : "2.2.0",
+        rxJavaVersion                     : "1.2.7",
         rxAndroidVersion                  : "1.2.1",
 
-        gsonVersion                       : "2.7",
+        gsonVersion                       : "2.8.0",
 
-        okIoVersion                       : "1.9.0",
-        okHttp3Version                    : "3.4.1",
+        okIoVersion                       : "1.11.0",
+        okHttp3Version                    : "3.6.0",
 
         glideVersion                      : "3.7.0",
         glideOkHttpVersion                : "1.4.0",
