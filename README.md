@@ -1,4 +1,4 @@
-# Zeta Bootstrap (Work In Progress)
+# Zeta Bootstrap
 
 # ![Zeta](https://cloud.githubusercontent.com/assets/1502341/17840452/5f574d84-67cd-11e6-83a5-9abb590f399f.png?raw=true "Zeta Banner")
 
