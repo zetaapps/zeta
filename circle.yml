@@ -3,7 +3,7 @@
 #
 general:
     artifacts:
-        - /home/ubuntu/com.myntra.coachmarks/app/build/outputs/apk/
+        - /home/ubuntu/zeta.android.apps/app/build/outputs/apk/
 
 machine:
     environment:
