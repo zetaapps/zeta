@@ -23,7 +23,6 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import zeta.android.apps.R;
 import zeta.android.apps.ZetaApplication;
-import zeta.android.apps.di.component.ZetaAppComponent;
 import zeta.android.apps.presenter.NavigationPresenter;
 import zeta.android.apps.ui.activity.navigation.NavigationFragmentManager;
 import zeta.android.apps.ui.common.BaseViews;
@@ -69,11 +68,6 @@ public class NavigationActivity extends BaseNavigationActivity implements Naviga
             headerTitle = (TextView) headerView.findViewById(R.id.header_title);
             headerEmail = (TextView) headerView.findViewById(R.id.header_email);
         }
-    }
-
-    @Override
-    protected void configureDependencies(ZetaAppComponent component) {
-        component.navigationActivity().inject(this);
     }
 
     @Override

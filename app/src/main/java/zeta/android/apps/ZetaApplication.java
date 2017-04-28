@@ -1,5 +1,6 @@
 package zeta.android.apps;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 
@@ -7,6 +8,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import javax.inject.Inject;
 
 import dagger.Lazy;
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.HasDispatchingActivityInjector;
 import rx.plugins.RxJavaHooks;
 import zeta.android.apps.di.component.DaggerZetaAppComponent;
 import zeta.android.apps.di.component.ZetaAppComponent;
@@ -15,7 +18,10 @@ import zeta.android.apps.rx.handlers.NetworkConnectivityErrorHandler;
 import zeta.android.apps.tools.DeveloperTools;
 
 @ParametersAreNonnullByDefault
-public class ZetaApplication extends Application {
+public class ZetaApplication extends Application implements HasDispatchingActivityInjector {
+
+    @Inject
+    DispatchingAndroidInjector<Activity> dispatchingActivityInjector;
 
     @Inject
     public Lazy<DeveloperTools> mDeveloperTools;
@@ -56,6 +62,11 @@ public class ZetaApplication extends Application {
     //region Dependency Injection
     public ZetaAppComponent getZetaAppComponent() {
         return mZetaAppComponent;
+    }
+
+    @Override
+    public DispatchingAndroidInjector<Activity> activityInjector() {
+        return dispatchingActivityInjector;
     }
     //endregion
 }

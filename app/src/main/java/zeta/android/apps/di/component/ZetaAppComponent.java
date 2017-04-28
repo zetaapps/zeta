@@ -13,10 +13,9 @@ import zeta.android.apps.ZetaApplication;
         EventBusModule.class,
         ZetaAppModule.class,
         OkHttpInterceptorsModule.class,
-        EventBusNoSubscriberModule.class})
+        EventBusNoSubscriberModule.class,
+        NavigationActivityModule.class})
 public interface ZetaAppComponent {
-
-    NavigationActivityComponent navigationActivity();
 
     DebugComponent debugComponent();
 
