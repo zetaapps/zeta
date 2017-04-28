@@ -21,6 +21,7 @@ import android.widget.TextView;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import dagger.android.AndroidInjection;
 import zeta.android.apps.R;
 import zeta.android.apps.ZetaApplication;
 import zeta.android.apps.presenter.NavigationPresenter;
@@ -72,6 +73,7 @@ public class NavigationActivity extends BaseNavigationActivity implements Naviga
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AndroidInjection.inject(this);
         setTheme(R.style.AppTheme);
         configureTaskDescription();
         super.onCreate(savedInstanceState);
