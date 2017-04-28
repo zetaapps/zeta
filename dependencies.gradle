@@ -1,11 +1,11 @@
 ext.versions = [
         compileSdk                        : 25,
-        minSdk                            : 16,
+        minSdk                            : 19,
         targetSdk                         : 25,
-        buildTools                        : "25.0.2",
+        buildTools                        : "25.0.3",
 
-        supportLibVersion                 : "25.2.0",
-        playServicesVersion               : "10.2.0",
+        supportLibVersion                 : "25.3.1",
+        playServicesVersion               : "10.2.4",
         dexmakerVersion                   : "1.2",
         multiDexVersion                   : "1.0.1",
 
@@ -19,10 +19,10 @@ ext.versions = [
         ormliteVersion                    : "4.48",
         prettyTimeVersion                 : "3.2.7.Final",
 
-        autoValue                         : "1.2",
-        autoValueParcel                   : "0.2.2",
+        autoValue                         : "1.4.1",
+        autoValueParcel                   : "0.2.5",
 
-        daggerVersion                     : "2.10-rc2",
+        daggerVersion                     : "2.10",
         retrofitVersion                   : "2.2.0",
         rxJavaVersion                     : "1.2.7",
         rxAndroidVersion                  : "1.2.1",
@@ -55,8 +55,8 @@ ext.versions = [
         supportTestVersion                : "0.4.1",
         espressoVersion                   : '2.2.1',
 
-        gradlePluginVersion               : "2.2.2",
-        retroLambdaPluginVersion          : "3.2.5",
+        gradlePluginVersion               : "2.3.1",
+        retroLambdaPluginVersion          : "3.6.1",
         retrolombokPluginVersion          : "0.2.3.a2",
         frodoPluginVersion                : "0.8.3"
 ]
