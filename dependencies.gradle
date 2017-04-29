@@ -58,7 +58,8 @@ ext.versions = [
         gradlePluginVersion               : "2.3.1",
         retroLambdaPluginVersion          : "3.6.1",
         retrolombokPluginVersion          : "0.2.3.a2",
-        frodoPluginVersion                : "0.8.3"
+        frodoPluginVersion                : "0.8.3",
+        kotlinVersion                     : "1.1.2-2"
 ]
 
 ext.gradlePlugins = [
@@ -66,7 +67,8 @@ ext.gradlePlugins = [
         retroLambdaPlugin : "me.tatarka:gradle-retrolambda:$versions.retroLambdaPluginVersion",
         frodoPlugin       : "com.fernandocejas.frodo:frodo-plugin:$versions.frodoPluginVersion",
         butterKnifePlugin : "com.jakewharton:butterknife-gradle-plugin:$versions.butterKnifeVersion",
-        lombokPlugin      : "me.tatarka.retrolambda.projectlombok:lombok.ast:$versions.retrolombokPluginVersion"
+        lombokPlugin      : "me.tatarka.retrolambda.projectlombok:lombok.ast:$versions.retrolombokPluginVersion",
+        kotlinPlugin      : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlinVersion"
 ]
 ext.libraries = [
 
@@ -174,5 +176,9 @@ ext.libraries = [
         espressoCore               : "com.android.support.test.espresso:espresso-core:$versions.espressoVersion",
         espressoContrib            : "com.android.support.test.espresso:espresso-contrib:$versions.espressoVersion",
         //endregion
+
+        //Kotlin
+        kotlin                     : "org.jetbrains.kotlin:kotlin-stdlib-jre7:$versions.kotlinVersion"
+        //end of Kotlin
 ]
 

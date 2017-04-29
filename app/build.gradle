@@ -2,6 +2,8 @@ apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.android.application'
 apply plugin: 'com.fernandocejas.frodo'
 apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion versions.compileSdk
@@ -133,7 +135,7 @@ dependencies {
 
     compile libraries.eventBus
     compile libraries.butterKnife
-    annotationProcessor libraries.butterKnifeCompiler
+    kapt libraries.butterKnifeCompiler
 
     //IMAGE PROCESSING
     compile libraries.glide
@@ -160,12 +162,12 @@ dependencies {
     compile libraries.rxJava
     compile libraries.rxAndroid
     compile libraries.dagger
-    annotationProcessor libraries.daggerCompiler
+    kapt libraries.daggerCompiler
     compile libraries.daggerAndroid
     compile libraries.daggerAndroidSupport
-    annotationProcessor libraries.daggerAndroidProcessor
+    kapt libraries.daggerAndroidProcessor
     provided libraries.autoValue
-    annotationProcessor libraries.autoValueParcel
+    kapt libraries.autoValueParcel
 
     //Zeta
     compile libraries.zetaUtils
@@ -207,6 +209,7 @@ dependencies {
         exclude module: 'recyclerview-v7'
         exclude module: 'support-v4'
     }
+    compile libraries.kotlin
 }
 
 configurations.all {
