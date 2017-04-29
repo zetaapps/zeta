@@ -33,33 +33,33 @@ class NavigationActivity : BaseNavigationActivity(), NavigationPresentation {
 
     private var mViews: Views? = null
 
-    @Inject @JvmField var mPresenter: NavigationPresenter? = null
+    @Inject lateinit var mPresenter: NavigationPresenter
 
     internal class Views(root: AppCompatActivity) : BaseViews(root.findViewById(R.id.zeta_drawer_layout)) {
 
         @BindView(R.id.zeta_drawer_layout)
-        @JvmField var drawerLayout: DrawerLayout? = null
+        lateinit var drawerLayout: DrawerLayout
 
         @BindView(R.id.zeta_app_bar_layout)
-        @JvmField var appBarLayout: AppBarLayout? = null
+        lateinit var appBarLayout: AppBarLayout
 
         @BindView(R.id.zeta_toolbar)
-        @JvmField var toolbar: Toolbar? = null
+        lateinit var toolbar: Toolbar
 
         @BindView(R.id.zeta_nav_view)
-        @JvmField var navigationView: NavigationView? = null
+        lateinit var navigationView: NavigationView
 
         @BindView(R.id.container)
-        @JvmField var fragmentContainer: View? = null
+        lateinit var fragmentContainer: View
 
-        @JvmField var headerImageView: ImageView
+        val headerImageView: ImageView
 
-        @JvmField var headerTitle: TextView
+        val headerTitle: TextView
 
-        @JvmField var headerEmail: TextView
+        val headerEmail: TextView
 
         init {
-            val headerView = navigationView!!.getHeaderView(0)
+            val headerView = navigationView.getHeaderView(0)
             headerImageView = headerView.findViewById(R.id.header_image_view) as ImageView
             headerTitle = headerView.findViewById(R.id.header_title) as TextView
             headerEmail = headerView.findViewById(R.id.header_email) as TextView
@@ -86,12 +86,12 @@ class NavigationActivity : BaseNavigationActivity(), NavigationPresentation {
                 this, mViews!!.drawerLayout, mViews!!.toolbar,
                 R.string.navigation_drawer_open,
                 R.string.navigation_drawer_close)
-        mViews!!.drawerLayout!!.addDrawerListener(toggle)
+        mViews!!.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
-        mPresenter!!.onCreate(this)
+        mPresenter.onCreate(this)
 
-        mViews!!.navigationView!!.setNavigationItemSelectedListener(this)
+        mViews!!.navigationView.setNavigationItemSelectedListener(this)
 
         if (savedInstanceState == null) {
             // mNavigationFragmentManager.addAsBaseFragment(HomeFragment.newInstance());
@@ -100,26 +100,25 @@ class NavigationActivity : BaseNavigationActivity(), NavigationPresentation {
 
     override fun onPostResume() {
         super.onPostResume()
-        mPresenter!!.onPostResume()
+        mPresenter.onPostResume()
     }
 
     override fun onPause() {
         super.onPause()
-        mPresenter!!.onPause()
+        mPresenter.onPause()
     }
 
     override fun onDestroy() {
         super.onDestroy()
         ZetaApplication.watchForMemoryLeaks(applicationContext, this)
-        mPresenter!!.onDestroy()
-        mPresenter = null
+        mPresenter.onDestroy()
         mViews!!.clear()
         mViews = null
     }
 
     override fun onBackPressed() {
-        if (mViews != null && mViews!!.drawerLayout!!.isDrawerOpen(GravityCompat.START)) {
-            mViews!!.drawerLayout!!.closeDrawer(GravityCompat.START)
+        if (mViews != null && mViews!!.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            mViews!!.drawerLayout.closeDrawer(GravityCompat.START)
         } else {
             super.onBackPressed()
         }
@@ -137,16 +136,16 @@ class NavigationActivity : BaseNavigationActivity(), NavigationPresentation {
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_home -> mPresenter!!.onMenuItemHomeSelected()
+            R.id.nav_home -> mPresenter.onMenuItemHomeSelected()
             R.id.nav_score -> {
             }
             R.id.nav_favorites -> {
             }
             R.id.nav_settings -> {
             }
-            R.id.nav_debug -> mPresenter!!.onMenuItemDebugSelected()
+            R.id.nav_debug -> mPresenter.onMenuItemDebugSelected()
         }
-        mViews!!.drawerLayout!!.closeDrawer(GravityCompat.START)
+        mViews!!.drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
 
@@ -174,7 +173,7 @@ class NavigationActivity : BaseNavigationActivity(), NavigationPresentation {
     //region NavigationPresentation
 
     override fun showDebugMenuItem(show: Boolean) {
-        val menu = mViews!!.navigationView!!.menu
+        val menu = mViews!!.navigationView.menu
         menu.findItem(R.id.nav_debug).isVisible = show
     }
 
