@@ -161,6 +161,9 @@ dependencies {
     compile libraries.rxAndroid
     compile libraries.dagger
     annotationProcessor libraries.daggerCompiler
+    compile libraries.daggerAndroid
+    compile libraries.daggerAndroidSupport
+    annotationProcessor libraries.daggerAndroidProcessor
     provided libraries.autoValue
     annotationProcessor libraries.autoValueParcel
 
@@ -173,7 +176,10 @@ dependencies {
     //DEVELOPER TOOLS
     compile libraries.timber
     debugCompile libraries.lynx
-    debugCompile libraries.stetho
+    debugCompile (libraries.stetho) {
+        exclude module: 'jsr305'
+    }
+
     debugCompile libraries.tinyDancer
     debugCompile libraries.leakcanary
     releaseCompile libraries.leakcanaryNoOp
@@ -188,12 +194,15 @@ dependencies {
     testCompile libraries.okHttpMockWebServer
 
     androidTestCompile libraries.dexmaker
-    androidTestCompile libraries.espressoCore
+    androidTestCompile (libraries.espressoCore) {
+        exclude module: 'jsr305'
+    }
     androidTestCompile libraries.dexmakerMockito
     androidTestCompile libraries.supportTestRules
     androidTestCompile libraries.supportTestRunner
     androidTestCompile(libraries.espressoContrib) {
         // Causes IncompatibleClassChangeError. As always…
+        exclude module: 'jsr305'
         exclude module: 'support-annotations'
         exclude module: 'recyclerview-v7'
         exclude module: 'support-v4'

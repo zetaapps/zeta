@@ -21,9 +21,9 @@ import android.widget.TextView;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import dagger.android.AndroidInjection;
 import zeta.android.apps.R;
 import zeta.android.apps.ZetaApplication;
-import zeta.android.apps.di.component.ZetaAppComponent;
 import zeta.android.apps.presenter.NavigationPresenter;
 import zeta.android.apps.ui.activity.navigation.NavigationFragmentManager;
 import zeta.android.apps.ui.common.BaseViews;
@@ -72,12 +72,8 @@ public class NavigationActivity extends BaseNavigationActivity implements Naviga
     }
 
     @Override
-    protected void configureDependencies(ZetaAppComponent component) {
-        component.navigationActivity().inject(this);
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AndroidInjection.inject(this);
         setTheme(R.style.AppTheme);
         configureTaskDescription();
         super.onCreate(savedInstanceState);
