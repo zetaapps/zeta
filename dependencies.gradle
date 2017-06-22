@@ -1,178 +1,238 @@
 ext.versions = [
-        compileSdk                        : 25,
-        minSdk                            : 19,
-        targetSdk                         : 25,
-        buildTools                        : "25.0.3",
+        compileSdk                            : 25,
+        minSdk                                : 16,
+        targetSdk                             : 24,
+        buildTools                            : "25.0.3",
 
-        supportLibVersion                 : "25.3.1",
-        playServicesVersion               : "10.2.4",
-        dexmakerVersion                   : "1.2",
-        multiDexVersion                   : "1.0.1",
+        supportLibVersion                     : "25.3.1",
+        playServicesVersion                   : "10.2.4",
+        dexmakerVersion                       : "1.2",
+        multiDexVersion                       : "1.0.1",
 
-        butterKnifeVersion                : "8.5.1",
-        bundlerVersion                    : "1.1.2",
-        eventBusVersion                   : "3.0.0",
+        facebookSdkVersion                    : "4.18.0",
 
-        javaxAnnotationApiVersion         : "1.2",
-        jsr305Version                     : "3.0.1",
+        butterKnifeVersion                    : "8.6.0",
+        bundlerVersion                        : "1.1.2",
+        eventBusVersion                       : "3.0.0",
 
-        ormliteVersion                    : "4.48",
-        prettyTimeVersion                 : "3.2.7.Final",
+        javaxAnnotationApiVersion             : "1.2",
+        jsr305Version                         : "3.0.1",
 
-        autoValue                         : "1.4.1",
-        autoValueParcel                   : "0.2.5",
+        ormliteVersion                        : "4.48",
+        prettyTimeVersion                     : "3.2.7.Final",
 
-        daggerVersion                     : "2.10",
-        retrofitVersion                   : "2.2.0",
-        rxJavaVersion                     : "1.2.7",
-        rxAndroidVersion                  : "1.2.1",
+        autoValueVersion                      : "1.4.1",
+        autoValueJakeWhartonVersion           : "1.4",
+        autoValueParcelVersion                : "0.2.5",
 
-        gsonVersion                       : "2.8.0",
+        daggerVersion                         : "2.10",
+        retrofitVersion                       : "2.1.0",
+        rxJavaVersion                         : "1.2.4",
+        rxAndroidVersion                      : "1.2.1",
 
-        okIoVersion                       : "1.11.0",
-        okHttp3Version                    : "3.6.0",
+        gsonVersion                           : "2.8",
+        cookiesJarVersion                     : "v1.0.0",
+        networkSamplerVersion                 : "connectionclass:1.0.1",
 
-        glideVersion                      : "3.7.0",
-        glideOkHttpVersion                : "1.4.0",
+        okIoVersion                           : "1.11.0",
+        okHttp3Version                        : "3.5.0",
 
-        lynxVersion                       : '1.6',
-        stethoVersion                     : '1.5.0',
-        tinyDancerVersion                 : '0.0.8',
-        timberVersion                     : "4.1.2",
-        leakcanaryVersion                 : "1.4-beta2",
+        glideVersion                          : "3.7.0",
+        glideOkHttpVersion                    : "1.4.0",
 
-        zetaUtilsVersion                  : "0.2",
-        zetaEitherVersion                 : "0.3",
-        zetaListItemDividerVersion        : "0.2",
-        zetaHeaderAndFooterAdaptersVersion: "0.2",
+        crashlyticsVersion                    : '2.6.7',
 
-        junitVersion                      : '4.12',
-        robolectricVersion                : '3.0',
-        assertJVersion                    : '1.7.1',
-        equalsVerifierVersion             : '1.7.5',
-        mockitoVersion                    : '1.10.19',
-        supportTestRunnerVersion          : '0.4.1',
-        supportTestVersion                : "0.4.1",
-        espressoVersion                   : '2.2.1',
+        branchIOVersion                       : '2.6.0',
 
-        gradlePluginVersion               : "2.3.1",
-        retroLambdaPluginVersion          : "3.6.1",
-        retrolombokPluginVersion          : "0.2.3.a2",
-        frodoPluginVersion                : "0.8.3"
+        lynxVersion                           : '1.6',
+        stethoVersion                         : '1.5.0',
+        tinyDancerVersion                     : '0.1.0',
+        timberVersion                         : "4.5.1",
+        leakcanaryVersion                     : "1.5",
+
+        zetaUtilsVersion                      : "0.4",
+        zetaEitherVersion                     : "0.3",
+        zetaListItemDividerVersion            : "0.2",
+        zetaHeaderAndFooterAdaptersVersion    : "0.2",
+
+        stickyScrollViewVersion               : "1.0.2",
+
+        metagalacticExpandableImageViewVersion: "0.0.2",
+
+        lottieAnimationVersion                : "1.5.1",
+
+        junitVersion                          : '4.12',
+        robolectricVersion                    : '3.0',
+        assertJVersion                        : '1.7.1',
+        equalsVerifierVersion                 : '1.7.5',
+        mockitoVersion                        : '1.10.19',
+        supportTestRunnerVersion              : '0.4.1',
+        supportTestVersion                    : "0.4.1",
+        espressoVersion                       : '2.2.1',
+
+        aptPluginVersion                      : "1.8",
+        fabricPluginVersion                   : "1.22.1",
+        gradlePluginVersion                   : "3.0.0-alpha4",
+        frodoPluginVersion                    : "0.8.3",
+        gmsServicesPluginVersion              : "3.0.0",
+
+        powerMockitoVersion                   : '1.6.2',
 ]
 
 ext.gradlePlugins = [
+        fabricPlugin      : "io.fabric.tools:gradle:$versions.fabricPluginVersion",
         androidToolsPlugin: "com.android.tools.build:gradle:$versions.gradlePluginVersion",
-        retroLambdaPlugin : "me.tatarka:gradle-retrolambda:$versions.retroLambdaPluginVersion",
         frodoPlugin       : "com.fernandocejas.frodo:frodo-plugin:$versions.frodoPluginVersion",
+        gmsServicesPlugin : "com.google.gms:google-services:$versions.gmsServicesPluginVersion",
+        aptPlugin         : "com.neenbedankt.gradle.plugins:android-apt:$versions.aptPluginVersion",
         butterKnifePlugin : "com.jakewharton:butterknife-gradle-plugin:$versions.butterKnifeVersion",
-        lombokPlugin      : "me.tatarka.retrolambda.projectlombok:lombok.ast:$versions.retrolombokPluginVersion"
 ]
+
 ext.libraries = [
 
         //region support libraries
-        supportDesign              : "com.android.support:design:$versions.supportLibVersion",
-        supportMultiDex            : "com.android.support:multidex:$versions.multiDexVersion",
-        supportV4                  : "com.android.support:support-v4:$versions.supportLibVersion",
-        supportV13                 : "com.android.support:support-v13:$versions.supportLibVersion",
-        supportCardView            : "com.android.support:cardview-v7:$versions.supportLibVersion",
-        supportAppCompat           : "com.android.support:appcompat-v7:$versions.supportLibVersion",
-        supportRecyclerView        : "com.android.support:recyclerview-v7:$versions.supportLibVersion",
-        supportAnnotations         : "com.android.support:support-annotations:$versions.supportLibVersion",
+        supportDesign                  : "com.android.support:design:$versions.supportLibVersion",
+        supportMultiDex                : "com.android.support:multidex:$versions.multiDexVersion",
+        supportV4                      : "com.android.support:support-v4:$versions.supportLibVersion",
+        supportV13                     : "com.android.support:support-v13:$versions.supportLibVersion",
+        supportCardView                : "com.android.support:cardview-v7:$versions.supportLibVersion",
+        supportAppCompat               : "com.android.support:appcompat-v7:$versions.supportLibVersion",
+        supportRecyclerView            : "com.android.support:recyclerview-v7:$versions.supportLibVersion",
+        supportAnnotations             : "com.android.support:support-annotations:$versions.supportLibVersion",
+        //endregion
+
+        //custom tabs
+        chromeCustomTab                : "com.android.support:customtabs:$versions.supportLibVersion",
         //endregion
 
         //region play services
-        playServicesGcm            : "com.google.android.gms:play-services-gcm:$versions.playServicesVersion",
-        playServicesAd             : "com.google.android.gms:play-services-ads:$versions.playServicesVersion",
-        playServicesMaps           : "com.google.android.gms:play-services-maps:$versions.playServicesVersion",
-        playServicesPlaces         : "com.google.android.gms:play-services-places:$versions.playServicesVersion",
-        playServicesLocation       : "com.google.android.gms:play-services-location:$versions.playServicesVersion",
+        playServicesGcm                : "com.google.android.gms:play-services-gcm:$versions.playServicesVersion",
+        playServicesAd                 : "com.google.android.gms:play-services-ads:$versions.playServicesVersion",
+        playServicesMaps               : "com.google.android.gms:play-services-maps:$versions.playServicesVersion",
+        playServicesPlaces             : "com.google.android.gms:play-services-places:$versions.playServicesVersion",
+        playServicesLocation           : "com.google.android.gms:play-services-location:$versions.playServicesVersion",
+        playServicesAuthentication     : "com.google.android.gms:play-services-auth:$versions.playServicesVersion",
+        //endregion
+
+        //region firebase
+        appIndexing                    : "com.google.firebase:firebase-appindexing:$versions.playServicesVersion",
+        //endregion
+
+        //region facebook
+        facebookSdk                    : "com.facebook.android:facebook-android-sdk:$versions.facebookSdkVersion",
         //endregion
 
         //region IMAGE PROCESSOR
-        glide                      : "com.github.bumptech.glide:glide:$versions.glideVersion",
-        glideOkHttp                : "com.github.bumptech.glide:okhttp3-integration:$versions.glideOkHttpVersion",
+        glide                          : "com.github.bumptech.glide:glide:$versions.glideVersion",
+        glideOkHttp                    : "com.github.bumptech.glide:okhttp3-integration:$versions.glideOkHttpVersion",
         //endregion
 
         //region DEPENDENCIES INJECTION
-        dagger                     : "com.google.dagger:dagger:$versions.daggerVersion",
-        daggerCompiler             : "com.google.dagger:dagger-compiler:$versions.daggerVersion",
-        daggerAndroid              : "com.google.dagger:dagger-android:$versions.daggerVersion",
-        daggerAndroidSupport       : "com.google.dagger:dagger-android-support:$versions.daggerVersion",
-        daggerAndroidProcessor     : "com.google.dagger:dagger-android-processor:$versions.daggerVersion",
+        dagger                         : "com.google.dagger:dagger:$versions.daggerVersion",
+        daggerCompiler                 : "com.google.dagger:dagger-compiler:$versions.daggerVersion",
+        daggerAndroid                  : "com.google.dagger:dagger-android:$versions.daggerVersion",
+        daggerAndroidSupport           : "com.google.dagger:dagger-android-support:$versions.daggerVersion",
+        daggerAndroidProcessor         : "com.google.dagger:dagger-android-processor:$versions.daggerVersion",
         //endregion
 
         //region NETWORK
-        okio                       : "com.squareup.okio:okio:$versions.okIoVersion",
-        okHttp3                    : "com.squareup.okhttp3:okhttp:$versions.okHttp3Version",
-        okHttp3LogInterceptor      : "com.squareup.okhttp3:logging-interceptor:$versions.okHttp3Version",
+        okio                           : "com.squareup.okio:okio:$versions.okIoVersion",
+        okHttp3                        : "com.squareup.okhttp3:okhttp:$versions.okHttp3Version",
+        okHttp3LogInterceptor          : "com.squareup.okhttp3:logging-interceptor:$versions.okHttp3Version",
 
-        retrofit                   : "com.squareup.retrofit2:retrofit:$versions.retrofitVersion",
-        retrofitGsonConverter      : "com.squareup.retrofit2:converter-gson:$versions.retrofitVersion",
-        retrofitRxAdapter          : "com.squareup.retrofit2:adapter-rxjava:$versions.retrofitVersion",
+        retrofit                       : "com.squareup.retrofit2:retrofit:$versions.retrofitVersion",
+        retrofitGsonConverter          : "com.squareup.retrofit2:converter-gson:$versions.retrofitVersion",
+        retrofitRxAdapter              : "com.squareup.retrofit2:adapter-rxjava:$versions.retrofitVersion",
 
-        rxJava                     : "io.reactivex:rxjava:$versions.rxJavaVersion",
-        rxAndroid                  : "io.reactivex:rxandroid:$versions.rxAndroidVersion",
+        rxJava                         : "io.reactivex:rxjava:$versions.rxJavaVersion",
+        rxAndroid                      : "io.reactivex:rxandroid:$versions.rxAndroidVersion",
 
-        gson                       : "com.google.code.gson:gson:$versions.gsonVersion",
+        gson                           : "com.google.code.gson:gson:$versions.gsonVersion",
+
+        networkSampler                 : "com.facebook.network.connectionclass:$versions.networkSamplerVersion",
+        persistentCookieJar            : "com.github.franmontiel:PersistentCookieJar:$versions.cookiesJarVersion",
         //endregion
 
         //region UTILS
-        autoValue                  : "com.google.auto.value:auto-value:$versions.autoValue",
-        autoValueParcel            : "com.ryanharter.auto.value:auto-value-parcel:$versions.autoValueParcel",
-        autoValueParcelAdapter     : "com.ryanharter.auto.value:auto-value-parcel-adapter:$versions.autoValueParcel",
+        autoValue                      : "com.google.auto.value:auto-value:$versions.autoValueVersion",
+        autoValueJakeWharton           : "com.jakewharton.auto.value:auto-value-annotations:$versions.autoValueJakeWhartonVersion",
+        autoValueParcel                : "com.ryanharter.auto.value:auto-value-parcel:$versions.autoValueParcelVersion",
+        autoValueParcelAdapter         : "com.ryanharter.auto.value:auto-value-parcel-adapter:$versions.autoValueParcelVersion",
 
-        butterKnife                : "com.jakewharton:butterknife:$versions.butterKnifeVersion",
-        butterKnifeCompiler        : "com.jakewharton:butterknife-compiler:$versions.butterKnifeVersion",
+        butterKnife                    : "com.jakewharton:butterknife:$versions.butterKnifeVersion",
+        butterKnifeCompiler            : "com.jakewharton:butterknife-compiler:$versions.butterKnifeVersion",
 
-        eventBus                   : "org.greenrobot:eventbus:$versions.eventBusVersion",
-        bundler                    : "com.f2prateek.bundler:bundler:$versions.bundlerVersion",
-        prettyTime                 : "org.ocpsoft.prettytime:prettytime:$versions.prettyTimeVersion",
+        eventBus                       : "org.greenrobot:eventbus:$versions.eventBusVersion",
+        bundler                        : "com.f2prateek.bundler:bundler:$versions.bundlerVersion",
+        prettyTime                     : "org.ocpsoft.prettytime:prettytime:$versions.prettyTimeVersion",
         //endregion
 
         //region DATABASE
-        ormlite                    : "com.j256.ormlite:ormlite-android:$versions.ormliteVersion",
+        ormlite                        : "com.j256.ormlite:ormlite-android:$versions.ormliteVersion",
         //endregion
 
         //region ANNOTATION
-        jsr305                     : "com.google.code.findbugs:jsr305:$versions.jsr305Version",
-        javaxAnnotationApi         : "javax.annotation:javax.annotation-api:$versions.javaxAnnotationApiVersion",
+        jsr305                         : "com.google.code.findbugs:jsr305:$versions.jsr305Version",
+        javaxAnnotationApi             : "javax.annotation:javax.annotation-api:$versions.javaxAnnotationApiVersion",
         //endregion
 
         //region zeta modular libraries
-        zetaUtils                  : "com.github.zetaapps:utils:$versions.zetaUtilsVersion",
-        zetaEither                 : "com.github.zetaapps:either:$versions.zetaEitherVersion",
-        zetaListItemDivider        : "com.github.zetaapps:List-Item-Divider:$versions.zetaListItemDividerVersion",
-        zetaHeaderAndFooterAdapters: "com.github.zetaapps:Header-Footer-Adapter:$versions.zetaHeaderAndFooterAdaptersVersion",
+        zetaUtils                      : "com.github.zetaapps:utils:$versions.zetaUtilsVersion",
+        zetaEither                     : "com.github.zetaapps:either:$versions.zetaEitherVersion",
+        zetaListItemDivider            : "com.github.zetaapps:List-Item-Divider:$versions.zetaListItemDividerVersion",
+        zetaHeaderAndFooterAdapters    : "com.github.zetaapps:Header-Footer-Adapter:$versions.zetaHeaderAndFooterAdaptersVersion",
+        //endregion
+
+        //region zeta modular libraries
+        metagalacticExpandableImageView: "com.github.metagalactic:ExpandableImageView:$versions.metagalacticExpandableImageViewVersion",
+        //endregion
+
+        stickyScrollView               : "com.github.amarjain07:StickyScrollView:$versions.stickyScrollViewVersion",
+
+        //region animation
+        lottieAnimation                : "com.airbnb.android:lottie:$versions.lottieAnimationVersion",
+        //endregion
+
+        //region Deeplink
+        branchIO                       : "io.branch.sdk.android:library:$versions.branchIOVersion",
+        //endregion
+
+        //region CRASH TRACKING TOOLS
+        crashlytics                    : "com.crashlytics.sdk.android:crashlytics:$versions.crashlyticsVersion",
         //endregion
 
         //region DEVELOPER TOOLS
-        lynx                       : "com.github.pedrovgs:lynx:$versions.lynxVersion",
-        stetho                     : "com.facebook.stetho:stetho:$versions.stethoVersion",
-        timber                     : "com.jakewharton.timber:timber:$versions.timberVersion",
-        tinyDancer                 : "com.github.brianPlummer:tinydancer:$versions.tinyDancerVersion",
-        leakcanary                 : "com.squareup.leakcanary:leakcanary-android:$versions.leakcanaryVersion",
-        leakcanaryNoOp             : "com.squareup.leakcanary:leakcanary-android-no-op:$versions.leakcanaryVersion",
+        lynx                           : "com.github.pedrovgs:lynx:$versions.lynxVersion",
+        stetho                         : "com.facebook.stetho:stetho:$versions.stethoVersion",
+        timber                         : "com.jakewharton.timber:timber:$versions.timberVersion",
+        tinyDancer                     : "com.github.brianPlummer:tinydancer:$versions.tinyDancerVersion",
+        leakcanary                     : "com.squareup.leakcanary:leakcanary-android:$versions.leakcanaryVersion",
+        leakcanaryNoOp                 : "com.squareup.leakcanary:leakcanary-android-no-op:$versions.leakcanaryVersion",
         //endregion
 
         //region TESTING DEPENDENCIES
-        junit                      : "junit:junit:$versions.junitVersion",
-        assertJ                    : "org.assertj:assertj-core:$versions.assertJVersion",
-        robolectric                : "org.robolectric:robolectric:$versions.robolectricVersion",
-        equalsVerifier             : "nl.jqno.equalsverifier:equalsverifier:$versions.equalsVerifierVersion",
+        orgDotJson                     : "org.json:json:20160810",
+        junit                          : "junit:junit:$versions.junitVersion",
+        assertJ                        : "org.assertj:assertj-core:$versions.assertJVersion",
+        robolectric                    : "org.robolectric:robolectric:$versions.robolectricVersion",
+        equalsVerifier                 : "nl.jqno.equalsverifier:equalsverifier:$versions.equalsVerifierVersion",
 
-        mockitoCore                : "org.mockito:mockito-core:$versions.mockitoVersion",
-        okHttpMockWebServer        : "com.squareup.okhttp3:mockwebserver:$versions.okHttp3Version",
-        retrofitMock               : "com.squareup.retrofit2:retrofit-mock:$versions.retrofitVersion",
+        mockitoCore                    : "org.mockito:mockito-core:$versions.mockitoVersion",
+        okHttpMockWebServer            : "com.squareup.okhttp3:mockwebserver:$versions.okHttp3Version",
+        retrofitMock                   : "com.squareup.retrofit2:retrofit-mock:$versions.retrofitVersion",
 
-        supportTestRules           : "com.android.support.test:rules:$versions.supportTestRunnerVersion",
-        supportTestRunner          : "com.android.support.test:runner:$versions.supportTestRunnerVersion",
+        supportTestRules               : "com.android.support.test:rules:$versions.supportTestRunnerVersion",
+        supportTestRunner              : "com.android.support.test:runner:$versions.supportTestRunnerVersion",
 
-        dexmaker                   : "com.google.dexmaker:dexmaker:$versions.dexmakerVersion",
-        dexmakerMockito            : "com.google.dexmaker:dexmaker-mockito:$versions.dexmakerVersion",
+        dexmaker                       : "com.google.dexmaker:dexmaker:$versions.dexmakerVersion",
+        dexmakerMockito                : "com.google.dexmaker:dexmaker-mockito:$versions.dexmakerVersion",
 
-        espressoCore               : "com.android.support.test.espresso:espresso-core:$versions.espressoVersion",
-        espressoContrib            : "com.android.support.test.espresso:espresso-contrib:$versions.espressoVersion",
+        espressoCore                   : "com.android.support.test.espresso:espresso-core:$versions.espressoVersion",
+        espressoContrib                : "com.android.support.test.espresso:espresso-contrib:$versions.espressoVersion",
+
+        powerMockitoJunit              : "org.powermock:powermock-module-junit4-rule:$versions.powerMockitoVersion",
+        powerMockitoJunitRule          : "org.powermock:powermock-module-junit4:$versions.powerMockitoVersion",
+        powerMockitoApi                : "org.powermock:powermock-api-mockito:$versions.powerMockitoVersion",
+        powerMockitoClassLoading       : "org.powermock:powermock-classloading-xstream:$versions.powerMockitoVersion",
         //endregion
 ]
-
