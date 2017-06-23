@@ -2,28 +2,27 @@ import com.android.build.gradle.internal.tasks.AndroidTestTask
 
 buildscript {
     // Gradle will not find vars defined in an external file when referring to them
-    // in the buildscript block, unless you link it from the buildscript block, too.
+    // in the build script block, unless you link it from the build script block, too.
     apply from: 'dependencies.gradle'
 
     repositories {
         jcenter()
 
         maven { url "https://jitpack.io" }
+        maven { url "https://maven.google.com" }
+        maven { url "https://maven.fabric.io/public" }
     }
 
     dependencies {
         classpath gradlePlugins.frodoPlugin
-        classpath gradlePlugins.lombokPlugin
-        classpath gradlePlugins.retroLambdaPlugin
-        classpath gradlePlugins.butterKnifePlugin
+        classpath gradlePlugins.fabricPlugin
         classpath gradlePlugins.androidToolsPlugin
+        classpath gradlePlugins.gmsServicesPlugin
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 
-    // Part of workaround for Lint + Retrolambda.
-    configurations.classpath.exclude group: 'com.android.tools.external.lombok'
 }
 
 allprojects {
@@ -31,6 +30,8 @@ allprojects {
         jcenter()
 
         maven { url "https://jitpack.io" }
+        maven { url "https://maven.google.com" }
+        maven { url "https://maven.fabric.io/public" }
     }
 
     // Workaround to prevent Gradle from stealing focus from other apps during tests run/etc.
@@ -73,12 +74,6 @@ subprojects {
         reports {
             xml.enabled = false
             html.enabled = true
-            xml {
-                destination "$project.buildDir/reports/pmd/pmd.xml"
-            }
-            html {
-                destination "$project.buildDir/reports/pmd/pmd.html"
-            }
         }
     }
 
@@ -98,14 +93,6 @@ subprojects {
         reports {
             xml.enabled = false
             html.enabled = true
-
-            xml {
-                destination "$project.buildDir/reports/findbugs/findbugs.xml"
-                withMessages = true
-            }
-            html {
-                destination "$project.buildDir/reports/findbugs/findbugs.html"
-            }
         }
         classpath = files()
     }
@@ -149,4 +136,3 @@ subprojects {
         }
     }
 }
-
