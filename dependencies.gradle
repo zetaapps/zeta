@@ -70,7 +70,6 @@ ext.versions = [
         supportTestVersion                    : "0.4.1",
         espressoVersion                       : '2.2.1',
 
-        aptPluginVersion                      : "1.8",
         fabricPluginVersion                   : "1.22.1",
         gradlePluginVersion                   : "3.0.0-alpha4",
         frodoPluginVersion                    : "0.8.3",
@@ -186,8 +185,6 @@ ext.libraries = [
         //region zeta modular libraries
         metagalacticExpandableImageView: "com.github.metagalactic:ExpandableImageView:$versions.metagalacticExpandableImageViewVersion",
         //endregion
-
-        stickyScrollView               : "com.github.amarjain07:StickyScrollView:$versions.stickyScrollViewVersion",
 
         //region animation
         lottieAnimation                : "com.airbnb.android:lottie:$versions.lottieAnimationVersion",

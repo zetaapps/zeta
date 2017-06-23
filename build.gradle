@@ -14,7 +14,6 @@ buildscript {
     }
 
     dependencies {
-        classpath gradlePlugins.aptPlugin
         classpath gradlePlugins.frodoPlugin
         classpath gradlePlugins.fabricPlugin
         classpath gradlePlugins.androidToolsPlugin
