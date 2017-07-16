@@ -1,7 +1,5 @@
-apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.android.application'
 apply plugin: 'com.fernandocejas.frodo'
-apply plugin: 'com.jakewharton.butterknife'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
@@ -17,9 +15,25 @@ android {
         applicationId "zeta.android.apps"
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
+        vectorDrawables.useSupportLibrary = true
         versionCode 3
         versionName "1.0.3"
-        multiDexEnabled true
+        multiDexEnabled false
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath false
+            }
+        }
+    }
+
+    splits {
+        abi {
+            enable project.hasProperty('splitApks')
+            reset()
+            include 'x86', 'armeabi', 'armeabi-v7a'
+            universalApk = true
+        }
     }
 
     buildTypes {
@@ -39,10 +53,17 @@ android {
         }
 
         release {
-            minifyEnabled false
+            minifyEnabled true
+            zipAlignEnabled
+            shrinkResources true
+            debuggable false
+            useProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    // Specifies a flavor dimension.
+    flavorDimensions "release"
 
     productFlavors {
 
@@ -50,18 +71,15 @@ android {
             applicationIdSuffix ".free"
             versionCode 3
             versionName "1.0.3.1"
+            dimension "release"
         }
 
         paid {
             applicationIdSuffix ".paid"
             versionCode 3
             versionName "1.0.3.2"
+            dimension "release"
         }
-    }
-
-    aaptOptions {
-        //Note: If you did not apply PNG optimization on your own, you may want this to be true
-        cruncherEnabled = false
     }
 
     testBuildType "automation"
@@ -98,12 +116,34 @@ android {
         exclude 'META-INF/NOTICE.txt'
         exclude 'META-INF/LICENSE'
         exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/MANIFEST.MF'
+
+        exclude 'META-INF/rxjava.properties'
+
+        exclude 'build-data.properties'
+
         exclude 'com/sun/jna/aix-ppc/libjnidispatch.a'
         exclude 'com/sun/jna/darwin/libjnidispatch.jnilib'
         exclude 'com/sun/jna/win32-x86-64/jnidispatch.dll'
         exclude 'com/sun/jna/win32-x86/jnidispatch.dll'
         exclude 'com/sun/jna/win32ce-arm/jnidispatch.dll'
         exclude 'com/sun/jna/w32ce-arm/jnidispatch.dll'
+        exclude 'jsr305_annotations/Jsr305_annotations.gwt.xml'
+
+        exclude 'fabric/io.fabric.sdk.android.fabric.properties'
+        exclude 'fabric/com.crashlytics.sdk.android.crashlytics-core.properties'
+        exclude 'fabric/com.crashlytics.sdk.android.crashlytics.properties'
+        exclude 'fabric/com.crashlytics.sdk.android.answers.properties'
+        exclude 'fabric/com.crashlytics.sdk.android.beta.properties'
+        exclude 'fabric/io.branch.sdk.android.library.properties'
+
+        exclude 'com/sun/jna/aix-ppc/libjnidispatch.a'
+        exclude 'com/sun/jna/darwin/libjnidispatch.jnilib'
+        exclude 'com/sun/jna/win32-x86-64/jnidispatch.dll'
+        exclude 'com/sun/jna/win32-x86/jnidispatch.dll'
+        exclude 'com/sun/jna/win32ce-arm/jnidispatch.dll'
+        exclude 'com/sun/jna/w32ce-arm/jnidispatch.dll'
+
         exclude 'META-INF/services/javax.annotation.processing.Processor'
     }
 
@@ -113,97 +153,107 @@ android {
             events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
             exceptionFormat 'full'
         }
+        //Print the test result summary
+        afterSuite { desc, result ->
+            if (!desc.parent) { // will match the outermost suite
+                println "Zeta Test Results: ${result.resultType} (${result.testCount} tests, ${result.successfulTestCount} successes, ${result.failedTestCount} failures, ${result.skippedTestCount} skipped)"
+            }
+        }
     }
 
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     //PLAY SERVICES
-    compile libraries.playServicesAd
-    compile libraries.playServicesGcm
-    compile libraries.playServicesMaps
-    compile libraries.playServicesLocation
+    implementation libraries.playServicesAd
+    implementation libraries.playServicesGcm
+    implementation libraries.playServicesMaps
+    implementation libraries.playServicesLocation
 
     //SUPPORT LIBS
-    compile libraries.supportV13
-    compile libraries.supportDesign
-    compile libraries.supportCardView
-    compile libraries.supportMultiDex
-    compile libraries.supportAppCompat
-    compile libraries.supportRecyclerView
+    implementation libraries.supportV13
+    implementation libraries.supportDesign
+    implementation libraries.supportCardView
+    implementation libraries.supportMultiDex
+    implementation libraries.supportAppCompat
+    implementation libraries.supportRecyclerView
 
-    compile libraries.eventBus
-    compile libraries.butterKnife
-    kapt libraries.butterKnifeCompiler
+    implementation libraries.eventBus
+    implementation libraries.butterKnife
+    annotationProcessor libraries.butterKnifeCompiler
 
     //IMAGE PROCESSING
-    compile libraries.glide
-    compile(libraries.glideOkHttp) {
+    implementation libraries.glide
+    implementation(libraries.glideOkHttp) {
         exclude group: 'glide-parent'
     }
 
-    compile(libraries.bundler) {
+    implementation(libraries.bundler) {
         // exclude this because bundler refers to an old version of the support lib
         exclude group: 'com.google.android'
     }
 
     //ANNOTATION
-    compile libraries.jsr305
-    compile libraries.javaxAnnotationApi
+    implementation libraries.jsr305
+    implementation libraries.javaxAnnotationApi
 
     //NETWORK
-    compile libraries.okHttp3
-    compile libraries.okHttp3LogInterceptor
-    compile libraries.retrofit
-    compile libraries.retrofitGsonConverter
+    implementation libraries.okHttp3
+    implementation libraries.okHttp3LogInterceptor
+    implementation libraries.retrofit
+    implementation libraries.retrofitGsonConverter
 
     //PROGRAMMING
-    compile libraries.rxJava
-    compile libraries.rxAndroid
-    compile libraries.dagger
-    kapt libraries.daggerCompiler
-    compile libraries.daggerAndroid
-    compile libraries.daggerAndroidSupport
-    kapt libraries.daggerAndroidProcessor
-    provided libraries.autoValue
-    kapt libraries.autoValueParcel
+    implementation libraries.rxJava
+    implementation libraries.rxAndroid
+
+    implementation libraries.dagger
+    annotationProcessor libraries.daggerCompiler
+
+    implementation libraries.daggerAndroid
+    implementation libraries.daggerAndroidSupport
+    annotationProcessor libraries.daggerAndroidProcessor
+
+    compileOnly libraries.autoValueJakeWharton
+    annotationProcessor libraries.autoValue
+    annotationProcessor libraries.autoValueParcel
 
     //Zeta
-    compile libraries.zetaUtils
-    compile libraries.zetaEither
-    compile libraries.zetaListItemDivider
-    compile libraries.zetaHeaderAndFooterAdapters
+    implementation libraries.zetaUtils
+    implementation libraries.zetaEither
+    implementation libraries.zetaListItemDivider
+    implementation libraries.zetaHeaderAndFooterAdapters
 
     //DEVELOPER TOOLS
-    compile libraries.timber
-    debugCompile libraries.lynx
-    debugCompile (libraries.stetho) {
+    implementation libraries.timber
+    debugImplementation libraries.lynx
+    debugImplementation(libraries.stetho) {
         exclude module: 'jsr305'
     }
 
-    debugCompile libraries.tinyDancer
-    debugCompile libraries.leakcanary
-    releaseCompile libraries.leakcanaryNoOp
-    automationCompile libraries.leakcanaryNoOp
+    debugImplementation libraries.tinyDancer
+    debugImplementation libraries.leakcanary
+    releaseImplementation libraries.leakcanaryNoOp
+    automationImplementation libraries.leakcanaryNoOp
 
     //TESTING
-    testCompile libraries.junit
-    testCompile libraries.assertJ
-    testCompile libraries.mockitoCore
-    testCompile libraries.robolectric
-    testCompile libraries.equalsVerifier
-    testCompile libraries.okHttpMockWebServer
+    testImplementation libraries.junit
+    testImplementation libraries.assertJ
+    testImplementation libraries.mockitoCore
+    testImplementation libraries.robolectric
+    testImplementation libraries.equalsVerifier
+    testImplementation libraries.okHttpMockWebServer
 
-    androidTestCompile libraries.dexmaker
-    androidTestCompile (libraries.espressoCore) {
+    androidTestImplementation libraries.dexmaker
+    androidTestImplementation(libraries.espressoCore) {
         exclude module: 'jsr305'
     }
-    androidTestCompile libraries.dexmakerMockito
-    androidTestCompile libraries.supportTestRules
-    androidTestCompile libraries.supportTestRunner
-    androidTestCompile(libraries.espressoContrib) {
+    androidTestImplementation libraries.dexmakerMockito
+    androidTestImplementation libraries.supportTestRules
+    androidTestImplementation libraries.supportTestRunner
+    androidTestImplementation(libraries.espressoContrib) {
         // Causes IncompatibleClassChangeError. As always…
         exclude module: 'jsr305'
         exclude module: 'support-annotations'
@@ -218,9 +268,5 @@ configurations.all {
         // Force our version of support-annotations, we have a conflict between app and androidTest dependency resolution.
         force libraries.supportAnnotations
     }
-}
-
-retrolambda {
-    jvmArgs '-noverify'
 }
 
