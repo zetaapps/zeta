@@ -71,7 +71,7 @@ ext.versions = [
         espressoVersion                       : '2.2.1',
 
         fabricPluginVersion                   : "1.22.1",
-        gradlePluginVersion                   : "3.0.0-alpha5",
+        gradlePluginVersion                   : "3.0.0-alpha6",
         frodoPluginVersion                    : "0.8.3",
         gmsServicesPluginVersion              : "3.0.0",
 
