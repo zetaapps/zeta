@@ -25,7 +25,7 @@ ext.versions = [
         autoValueJakeWhartonVersion           : "1.4",
         autoValueParcelVersion                : "0.2.5",
 
-        daggerVersion                         : "2.10",
+        daggerVersion                         : "2.11",
         retrofitVersion                       : "2.1.0",
         rxJavaVersion                         : "1.2.4",
         rxAndroidVersion                      : "1.2.1",

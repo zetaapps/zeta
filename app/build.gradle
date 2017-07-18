@@ -182,7 +182,7 @@ dependencies {
 
     implementation libraries.eventBus
     implementation libraries.butterKnife
-    annotationProcessor libraries.butterKnifeCompiler
+    kapt libraries.butterKnifeCompiler
 
     //IMAGE PROCESSING
     implementation libraries.glide
@@ -210,15 +210,15 @@ dependencies {
     implementation libraries.rxAndroid
 
     implementation libraries.dagger
-    annotationProcessor libraries.daggerCompiler
+    kapt libraries.daggerCompiler
 
     implementation libraries.daggerAndroid
     implementation libraries.daggerAndroidSupport
-    annotationProcessor libraries.daggerAndroidProcessor
+    kapt libraries.daggerAndroidProcessor
 
     compileOnly libraries.autoValueJakeWharton
-    annotationProcessor libraries.autoValue
-    annotationProcessor libraries.autoValueParcel
+    kapt libraries.autoValue
+    kapt libraries.autoValueParcel
 
     //Zeta
     implementation libraries.zetaUtils

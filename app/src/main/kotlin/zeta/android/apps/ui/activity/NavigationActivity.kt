@@ -15,9 +15,6 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-
-import javax.inject.Inject
-
 import butterknife.BindView
 import dagger.android.AndroidInjection
 import zeta.android.apps.R
@@ -27,6 +24,7 @@ import zeta.android.apps.ui.activity.navigation.NavigationFragmentManager
 import zeta.android.apps.ui.common.BaseViews
 import zeta.android.apps.ui.fragment.DebugFragment
 import zeta.android.apps.ui.presentation.NavigationPresentation
+import javax.inject.Inject
 
 
 class NavigationActivity : BaseNavigationActivity(), NavigationPresentation {
@@ -117,9 +115,17 @@ class NavigationActivity : BaseNavigationActivity(), NavigationPresentation {
     }
 
     override fun onBackPressed() {
-        if (mViews != null && mViews!!.drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            mViews!!.drawerLayout.closeDrawer(GravityCompat.START)
-        } else {
+        val drawerLayout = mViews?.drawerLayout
+
+        drawerLayout?.run {
+            if (isDrawerOpen(GravityCompat.START)) {
+                closeDrawer(GravityCompat.START)
+            } else {
+                super.onBackPressed()
+            }
+        }
+
+        if (drawerLayout == null) {
             super.onBackPressed()
         }
     }
