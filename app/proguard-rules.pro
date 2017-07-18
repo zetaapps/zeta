@@ -203,6 +203,9 @@
 #Mockito
 -dontwarn org.mockito.**
 
+#Dagger
+-dontwarn com.google.errorprone.annotations.*
+
 #Just to ignore the notes
 -dontnote android.net.http.*
 -dontnote org.apache.commons.codec.**
