@@ -9,7 +9,7 @@ import javax.inject.Inject;
 
 import dagger.Lazy;
 import dagger.android.DispatchingAndroidInjector;
-import dagger.android.HasDispatchingActivityInjector;
+import dagger.android.HasActivityInjector;
 import rx.plugins.RxJavaHooks;
 import zeta.android.apps.di.component.DaggerZetaAppComponent;
 import zeta.android.apps.di.component.ZetaAppComponent;
@@ -18,7 +18,7 @@ import zeta.android.apps.rx.handlers.NetworkConnectivityErrorHandler;
 import zeta.android.apps.tools.DeveloperTools;
 
 @ParametersAreNonnullByDefault
-public class ZetaApplication extends Application implements HasDispatchingActivityInjector {
+public class ZetaApplication extends Application implements HasActivityInjector {
 
     @Inject
     DispatchingAndroidInjector<Activity> dispatchingActivityInjector;
